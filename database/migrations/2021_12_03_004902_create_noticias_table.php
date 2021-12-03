@@ -19,9 +19,9 @@ class CreateNoticiasTable extends Migration
             $table->binary('portada')->nullable();
             $table->text('descripcion');
             $table->date('fecha_noticia');
-            $table->string('nombre_autor'. 100);
+            $table->string('nombre_autor', 100);
             $table->string('apaterno_autor',100);
-            $table->string('amaterno_autor0',60);
+            $table->string('amaterno_autor',60);
     
             $table->timestamps();
         });

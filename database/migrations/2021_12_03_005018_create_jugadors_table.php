@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJugadoresTable extends Migration
+class CreateJugadorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateJugadoresTable extends Migration
      */
     public function up()
     {
-        Schema::create('jugadores', function (Blueprint $table) {
+        Schema::create('jugadors', function (Blueprint $table) {
             $table->id();
             $table->string('nombre_jugador',60);
             $table->string('apaterno_jugador',60);
             $table->string('amaterno_jugador',60);
             
             $table->foreignId('id_equipo')->constrained('equipos');
-            $table->foreignId('id_posicion')->constrained('posiciones');
+            $table->foreignId('id_posicion')->constrained('posicions');
             /*
             $table->unsignedBigInteger('equipo_id')->unique();
             $table->unsignedBigInteger('posicion_id')->unique();

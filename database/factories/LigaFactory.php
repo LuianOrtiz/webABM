@@ -17,15 +17,15 @@ class LigaFactory extends Factory
     public function definition()
     {
         return [
-            'nombre_responsable' => $this->faker->randomElement(['Juan','Diego','Mario']), 
-            'apaterno_responsable'=> $this->faker->randomElement(['Garcia','Salinas','Salgado']), 
-            'amaterno_responsable'=> $this->faker->randomElement(['Diaz','Cortez','Mendez']), 
-            'telefono_responsable'=> 4431746376, 
-            'nombre_liga'=> $this->faker->randomElement(['Patz','Tarimbaro','Paracho']), 
-            'localidad'=> 'Morelia', 
-            'ciudad'=> $this->faker->randomElement(['Tlajomulco','Lomas azules','GarzaBlanca']),
-            'codigo_postal'=> 58015,  
-            'numero'=> 225, 
+            'nombre_responsable' => $this->faker->firstName($gender = null), 
+            'apaterno_responsable'=> $this->faker->lastName(), 
+            'amaterno_responsable'=> $this->faker->lastName(), 
+            'telefono_responsable'=> 4431786376, 
+            'nombre_liga'=> $this->faker->sentence($nbWords=2, $variableNbWords=true), 
+            'localidad'=> $this->faker->country(), 
+            'ciudad'=> $this->faker->city(),
+            'codigo_postal'=> $this->faker->postcode(),  
+            'numero'=> $this->faker->numberBetween($int1 = 1, $int2 = 999), 
             'edad_minima'=> 11,
             'edad_maxima'=> 16
         ];

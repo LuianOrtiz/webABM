@@ -22,7 +22,7 @@ class CreateEquiposTable extends Migration
             $table->string('amaterno_manager');
             
             $table->foreignId('id_liga')->constrained('ligas');
-            $table->foreignId('id_entrenador')->constrained('entrenadores');
+            $table->foreignId('id_entrenador')->constrained('entrenadors');
             /*
             $table->unsignedBigInteger('liga_id');
             $table->unsignedBigInteger('entrenador_id')->unique()->nullable();
