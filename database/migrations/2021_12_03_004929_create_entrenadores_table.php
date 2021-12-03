@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEntrenadorTable extends Migration
+class CreateEntrenadoresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class CreateEntrenadorTable extends Migration
      */
     public function up()
     {
-        Schema::create('entrenador', function (Blueprint $table) {
-            $table->bigIncrements('id_torneo');
+        Schema::create('entrenadores', function (Blueprint $table) {
+            $table->id();
             $table->string('nombre_entrenador',60);
             $table->string('apaterno_entrenador',60);
             $table->string('amaterno_entrenador',60);
             $table->date('fecha_nacimiento');
 
             $table->timestamps();
+
         });
     }
 
@@ -31,6 +32,6 @@ class CreateEntrenadorTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('entrenador');
+        Schema::dropIfExists('entrenadores');
     }
 }

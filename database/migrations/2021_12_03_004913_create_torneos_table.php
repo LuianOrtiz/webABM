@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTorneoTable extends Migration
+class CreateTorneosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateTorneoTable extends Migration
      */
     public function up()
     {
-        Schema::create('torneo', function (Blueprint $table) {
-            $table->bigIncrements('id_torneo');
+        Schema::create('torneos', function (Blueprint $table) {
+            $table->id();
             $table->string('nombre_torneo',150);
             $table->text('calendario');
             $table->text('resultados');
@@ -30,6 +30,6 @@ class CreateTorneoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('torneo');
+        Schema::dropIfExists('torneos');
     }
 }

@@ -14,8 +14,7 @@ class CreateLigasTable extends Migration
     public function up()
     {
         Schema::create('ligas', function (Blueprint $table) {
-
-            $table->bigIncrements('id_liga');
+            $table->id();
             $table->string('nombre_responsable',60)->nullable();
             $table->string('apaterno_responsable',60)->nullable();
             $table->string('amaterno_responsable',60)->nullable();
@@ -31,7 +30,6 @@ class CreateLigasTable extends Migration
             $table->integer('edad_maxima')->nullable();
             
             $table->timestamps();
-
         });
     }
 

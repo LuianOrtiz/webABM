@@ -14,18 +14,22 @@ class CreateJugadoresTable extends Migration
     public function up()
     {
         Schema::create('jugadores', function (Blueprint $table) {
-            $table->bigIncrements('id_jugador');
+            $table->id();
             $table->string('nombre_jugador',60);
             $table->string('apaterno_jugador',60);
             $table->string('amaterno_jugador',60);
             
-            $table->unsignedBigInteger('id_equipo')->nullable();
-            $table->unsignedBigInteger('id_posicion')->nullable();
+            $table->foreignId('id_equipo')->constrained('equipos');
+            $table->foreignId('id_posicion')->constrained('posiciones');
+            /*
+            $table->unsignedBigInteger('equipo_id')->unique();
+            $table->unsignedBigInteger('posicion_id')->unique();
 
-            $table->foreign('id_equipo')->references('id_equipo')->on('equipos')->onDelete('set null');
-            $table->foreign('id_posicion')->references('id_posicion')->on('posicion')->onDelete('set null');
-            
+            $table->foreign('equipo_id')->references('id')->on('equipos')->onDelete('set null');
+            $table->foreign('posicion_id')->references('id')->on('posiciones')->onDelete('set null');
+            */
             $table->timestamps();
+
         });
     }
 
