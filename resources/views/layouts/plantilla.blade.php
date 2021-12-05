@@ -7,12 +7,13 @@
     <title>@yield('title')</title>
 </head>
 <body>
-    <section>
-        <nav>  
-            <li> <a href="ligas/" > Ligas </a> </li>
-            <li> <a href="equipos/"> Equipos </a> </li>
-        </nav>
-    @yield('content')
+        <section>
+            <nav>  
+                <li> <a href="ligas/" > Ligas </a> </li>
+                <li> <a href="equipos/"> Equipos </a> </li>
+            </nav>
+        @yield('content')
     
+    <script src="{{ asset('/js/app.js') }}"></script>
 </body>
 </html>
