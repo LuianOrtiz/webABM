@@ -48,22 +48,16 @@ Route::get('/admon/ligas/{liga}', [LigaController::class, 'update'])->name('liga
 Route::get('/admon/ligas/eliminar', [LigaController::class, 'delete'])->name('ligas.delete');
 
 //CRUD EQUIPOS
-Route::get('/admon/equipos/{liga}/equipos/', [EquipoController::class, 'index'])->name('equipos.index'); //gestor de equipos
-
 Route::get('/admon/equipos/{liga}/equipos/crear', [EquipoController::class, 'create'])->name('equipos.create');
 Route::get('/admon/equipos/{liga}/{equipo}', [EquipoController::class, 'update'])->name('equipos.update');
 Route::get('/admon/equipos/{liga}/eliminar', [EquipoController::class, 'delete'])->name('equipos.delete');
 
 //CRUD JUGADOR
-Route::get('/admon/equipos/{liga}/{equipo}/jugadores', [JugadorController::class, 'index'])->name('jugadores.index'); //gestor de jugadores
-
 Route::get('/admon/ligas/{liga}/{equpo}/jugadores/crear', [JugadorController::class, 'create'])->name('jugadores.create');
 Route::get('/admon/ligas/{liga}/{equpo}/{jugador}', [JugadorController::class, 'update'])->name('jugadores.update');
 Route::get('/admon/ligas/{liga}/{equpo}/jugadores/eliminar', [JugadorController::class, 'delete'])->name('jugadores.delete');
 
 //CRUD ENTRENADOR
-Route::get('/admon/equipos/{liga}/{equipo}/entrenadores', [JugadorController::class, 'index'])->name('entrenadores.index'); //gestor de entrenadores
-
 Route::get('/admon/ligas/{liga}/{equpo}/entrenadores/crear', [EntrenadorController::class, 'create'])->name('entrenadores.create');
 Route::get('/admon/ligas/{liga}/{equpo}/{entrenador}/', [EntrenadorController::class, 'update'])->name('entrenadores.update');
 Route::get('/admon/ligas/{liga}/{equpo}/entrenadores/eliminar', [EntrenadorController::class, 'delete'])->name('entrenadores.delete');
@@ -82,3 +76,7 @@ Route::get('/admon/noticias/delete', [NoticiasController::class, 'delete'])->nam
 Route::get('/admon/', [AdminController::class, 'index'])->name('admon.index');
 Route::get('/admon/{gestor}', [AdminController::class, 'show'])->name('admon.show');
 Route::get('/admon/crear', [AdminController::class, 'create'])->name('admon.create');
+
+Route::get('/admon/equipos/{liga}/equipos/', [AdminController::class, 'index'])->name('admon.show'); //gestor de equipos
+Route::get('/admon/equipos/{liga}/{equipo}/jugadores', [AdminController::class, 'index'])->name('admon.show'); //gestor de jugadores
+Route::get('/admon/equipos/{liga}/{equipo}/entrenadores', [AdminController::class, 'index'])->name('admon.show'); //gestor de entrenadores

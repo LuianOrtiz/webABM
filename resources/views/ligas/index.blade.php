@@ -3,7 +3,9 @@
 @section('title', 'Ligas')
     
 @section('content')
-    <h1> Bienvenido a la pagina de ligas </h1> 
+    <section>
+        <h2 class="titulo">Nuestras Ligas</h2>
+    </section>
     <ul>
         @foreach ($ligas as $liga)
         <li>    
@@ -22,6 +24,10 @@
             </li>   
         @endforeach
     </ul>
-    
-    {{$ligas->links()}}
+    <div id="app">
+        <example-component>
+            
+        </example-component>
+    </div>
+    <!-- {{$ligas->links()}} -->
 @endsection
