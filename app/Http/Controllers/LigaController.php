@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Liga;
 use App\Models\Equipo;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreLiga;
+use App\Http\Requests\UpdateLiga;
 
 class LigaController extends Controller
 {
@@ -20,37 +22,12 @@ class LigaController extends Controller
         return view('ligas.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreLiga $request)
     { 
 
-        $request->validate([
-            'nombre_liga' => 'required',
-            'localidad' => 'required',
-            'ciudad'=> 'required',
-            'nombre_responsable' => 'required',
-            'edad_minima' => 'required',
-            'edad_maxima' => 'required'
-        ]);
-
-        $nueva_liga = new Liga();
-
-        $nueva_liga->nombre_liga = $request->nombre_liga;
-        $nueva_liga->nombre_responsable = $request->nombre_responsable;;
-        $nueva_liga->apaterno_responsable = $request->apaterno_responsable;;
-        $nueva_liga->amaterno_responsable = $request->amaterno_responsable;
-        $nueva_liga->telefono_responsable = $request->telefono_responsable;
-        $nueva_liga->localidad = $request->localidad;
-        $nueva_liga->ciudad = $request->ciudad;
-        $nueva_liga->codigo_postal = $request->codigo_postal;
-        $nueva_liga->colonia = $request->colonia;
-        $nueva_liga->numero = $request->numero;
-        $nueva_liga->edad_minima = $request->edad_minima;
-        $nueva_liga->edad_maxima = $request->edad_maxima;
-
-        $nueva_liga->save();
-
+        $nueva_liga = Liga::create($request->all()); 
         return redirect()->route('ligas.index');
-
+    
     }
 
     public function show($liga){
@@ -68,36 +45,19 @@ class LigaController extends Controller
         return view('ligas.edit', compact('liga'));
     }
     
-    public function update(Request $request,$liga)
+    public function update(UpdateLiga $request,$liga)
     {
-        $request->validate([
-            'nombre_liga' => 'required',
-            'localidad' => 'required',
-            'ciudad'=> 'required',
-            'nombre_responsable' => 'required',
-            'edad_minima' => 'required',
-            'edad_maxima' => 'required'
-        ]);
-        
+
         $liga = Liga::find($liga);
-
-        $liga->nombre_liga = $request->nombre_liga;
-        $liga->nombre_responsable = $request->nombre_responsable;;
-        $liga->apaterno_responsable = $request->apaterno_responsable;;
-        $liga->amaterno_responsable = $request->amaterno_responsable;
-        $liga->telefono_responsable = $request->telefono_responsable;
-        $liga->localidad = $request->localidad;
-        $liga->ciudad = $request->ciudad;
-        $liga->codigo_postal = $request->codigo_postal;
-        $liga->colonia = $request->colonia;
-        $liga->numero = $request->numero;
-        $liga->edad_minima = $request->edad_minima;
-        $liga->edad_maxima = $request->edad_maxima;
-
-        $liga->save();
-
+        $liga->update($request->all());
         return redirect()->route('ligas.index');
 
+    }
 
+    public function destroy($liga)
+    {   
+        $liga = Liga::find($liga);
+        $liga->delete();
+        return redirect()->route('ligas.index');
     }
 }

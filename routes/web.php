@@ -21,9 +21,9 @@ use App\Http\Controllers\TorneosController;
 */
 
 //Ruta legibles para el usuario
+/*
 Route::get('/', HomeController::class);
 
-Route::get('ligas', [LigaController::class, 'index'])->name('ligas.index');
 Route::get('ligas/{liga}', [LigaController::class, 'show'])->name('ligas.show');
 Route::get('ligas/{liga}/{equipo}', [EquipoController::class,'show'])->name('equipos.show');
 
@@ -33,7 +33,7 @@ Route::get('noticias/', [NoticiasController::class,'index'])->name('}');
 Route::get('noticias/{noticia}', [NoticiasController::class,'show'])->name('');
 
 Route::get('contacto/', [ContactoController::class,'index'])->name('');
-
+*/
 //investigar si hay otras formas de subir imagenes. por medio de url?? omo
 /*
 *   ======================================  *
@@ -43,12 +43,12 @@ Route::get('contacto/', [ContactoController::class,'index'])->name('');
 
 
 //CRUD LIGAS
+Route::get('/admon/ligas', [LigaController::class, 'index'])->name('ligas.index');
 Route::get('/admon/ligas/crear', [LigaController::class, 'create'])->name('ligas.create');
 Route::post('admon/ligas', [LigaController::class, 'store'])->name('ligas.store');
 Route::get('/admon/ligas/{liga}', [LigaController::class, 'edit'])->name('ligas.edit');
 Route::put('/admon/ligas/{liga}', [LigaController::class, 'update'])->name('ligas.update');
-Route::get('/admon/ligas/eliminar', [LigaController::class, 'delete'])->name('ligas.delete');
-
+Route::delete('/admon/ligas/{liga}', [LigaController::class, 'destroy'])->name('ligas.destroy');
 
 /*
 //CRUD EQUIPOS

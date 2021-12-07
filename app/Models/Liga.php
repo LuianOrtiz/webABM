@@ -9,6 +9,7 @@ class Liga extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
 }
 
 

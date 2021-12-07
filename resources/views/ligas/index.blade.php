@@ -23,9 +23,15 @@
                                 <div class="btn-equipos">
                                     <a href="" class="btn btn-outline-light ps-5 pe-5 pt-2 pb-2">Equipos</a>
                                 </div>
+                                <div>
+                                    <form action="{{route('ligas.destroy', $liga)}}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit">Eliminar</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                        
                     </div>
                 </div>
             </div>
