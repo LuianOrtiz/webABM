@@ -21,7 +21,17 @@ class LigaController extends Controller
     }
 
     public function store(Request $request)
-    {
+    { 
+
+        $request->validate([
+            'nombre_liga' => 'required',
+            'localidad' => 'required',
+            'ciudad'=> 'required',
+            'nombre_responsable' => 'required',
+            'edad_minima' => 'required',
+            'edad_maxima' => 'required'
+        ]);
+
         $nueva_liga = new Liga();
 
         $nueva_liga->nombre_liga = $request->nombre_liga;
@@ -60,6 +70,15 @@ class LigaController extends Controller
     
     public function update(Request $request,$liga)
     {
+        $request->validate([
+            'nombre_liga' => 'required',
+            'localidad' => 'required',
+            'ciudad'=> 'required',
+            'nombre_responsable' => 'required',
+            'edad_minima' => 'required',
+            'edad_maxima' => 'required'
+        ]);
+        
         $liga = Liga::find($liga);
 
         $liga->nombre_liga = $request->nombre_liga;

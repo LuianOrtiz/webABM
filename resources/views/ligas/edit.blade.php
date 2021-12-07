@@ -12,13 +12,25 @@
         @method('put')
         <label>
             Nombre Liga:<br>
-            <input type="text" name="nombre_liga" value="{{$liga->nombre_liga}}" >
+            <input type="text" name="nombre_liga" value="{{old('nombre_liga',$liga->nombre_liga)}}" >
         </label>
+        @error('nombre_liga')
+            <br>
+            <small>*{{$message}}</small>
+            <br>
+        @enderror
+
         <br>
         <label>
             Nombre Responsable:<br>
-            <input type="text" name="nombre_responsable" value="{{$liga->nombre_responsable}}">
+            <input type="text" name="nombre_responsable" value="{{old('nombre_responsable',$liga->nombre_responsable)}}">
         </label>
+        @error('nombre_responsable')
+            <br>
+            <small>*{{$message}}</small>
+            <br>
+        @enderror
+
         <br>
         <label>
             Apellido Paterno Responsable:<br>
@@ -35,12 +47,25 @@
         </label><br>
         <label>
             Localidad:<br>
-            <input type="text" name="localidad" value="{{$liga->localidad}}">
-        </label><br>
+            <input type="text" name="localidad" value="{{old('localidad',$liga->localidad)}}">
+        </label>
+        @error('localidad')
+            <br>
+            <small>*{{$message}}</small>
+            <br>
+        @enderror
+
+        <br>
         <label>
             Ciudad:<br>
-            <input type="text" name="ciudad" value="{{$liga->ciudad}}">
-        </label><br>
+            <input type="text" name="ciudad" value="{{old('ciudad',$liga->ciudad)}}">
+        </label>
+        @error('ciudad')
+            <br> 
+            <small>*{{$message}}</small>
+            <br>
+        @enderror
+        <br>
         <label>
             Codigo Postal:<br>
             <input type="text" name="codigo_postal" value="{{$liga->codigo_postal}}">
@@ -55,13 +80,23 @@
         </label><br>
         <label>
             Edad minima:<br>
-            <input type="number" name="edad_minima" value="{{$liga->edad_minima}}">
-        </label><br>
+            <input type="number" name="edad_minima" value="{{old('edad_minima',$liga->edad_minima)}}">
+        </label>
+        @error('edad_minima')
+            <br>
+            <small>*{{$message}}</small>
+            <br>
+        @enderror
+        <br>
         <label>
             Edad maxima:<br>
-            <input type="number" name="edad_maxima"  value="{{$liga->edad_maxima}}">
+            <input type="number" name="edad_maxima"  value="{{old('edad_maxima',$liga->edad_maxima)}}">
         </label>
-
+        @error('edad_maxima')
+            <br>
+            <small>*{{$message}}</small>
+            <br>
+        @enderror
         <br>
         <button type="submit">Actualizar liga {{$liga->nombre_liga}}</button>
     </form>
