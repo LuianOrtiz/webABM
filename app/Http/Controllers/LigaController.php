@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Liga;
 use App\Models\Equipo;
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Http\Request;
 
 class LigaController extends Controller
@@ -14,6 +15,20 @@ class LigaController extends Controller
         $ligas = Liga::paginate();
         
         return view('ligas.index', compact('ligas'));
+    }
+
+    public function getAll(){
+        $ligas = Liga::all();
+        /*foreach($ligas as $liga){
+            if ($liga->logo_liga != null){
+                try {
+                    $liga->logo_liga = base64_encode($liga->logo_liga);
+                } catch (FileNotFoundException $e) {
+                    return "ERROR ${e}";
+                }
+            }
+        }*/
+        return $ligas;
     }
 
     public function create(){

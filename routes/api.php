@@ -17,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//mostrar todos los registros
+Route::get('/ligas',"App\Http\Controllers\LigaController@getAll");
+Route::get('/noticias',"App\Http\Controllers\NoticiasController@getAll");
+Route::get('/torneos',"App\Http\Controllers\TorneosController@getAll");

@@ -20,7 +20,7 @@ class CreateLigasTable extends Migration
             $table->string('amaterno_responsable',60)->nullable();
             $table->string('telefono_responsable',10)->nullable();
             $table->string('nombre_liga', 100);
-            $table->binary('logo_liga')->nullable();
+            $table->text('logo_liga')->nullable();
             $table->string('localidad',100);
             $table->string('ciudad',100);
             $table->string('codigo_postal',10)->nullable();

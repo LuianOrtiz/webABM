@@ -13,6 +13,11 @@ class TorneosController extends Controller
         return view('torneos.index', compact('torneos'));
     }
 
+    public function getAll(){
+        $torneos = Torneo::all();
+        return $torneos;
+    }
+
     public function create()
     {
         return view();

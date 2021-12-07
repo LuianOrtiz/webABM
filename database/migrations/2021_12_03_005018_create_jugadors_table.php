@@ -17,7 +17,7 @@ class CreateJugadorsTable extends Migration
             $table->id();
             $table->string('nombre_jugador',60);
             $table->string('apaterno_jugador',60);
-            $table->string('amaterno_jugador',60);
+            $table->string('amaterno_jugador',60)->nullable();
             
             $table->foreignId('id_equipo')->constrained('equipos');
             $table->foreignId('id_posicion')->constrained('posicions');
