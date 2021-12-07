@@ -52,7 +52,9 @@
             </div>
         </nav>
     </header>
+    
     @yield('content')
+    
     <footer>
         <div>Asociación de Besbolistas michoacanos</div>
     </footer>
