@@ -50,4 +50,10 @@ class EntrenadorController extends Controller
         $entrenador->delete();
         return redirect()->route('entrenadores.index', $liga, $equipo);
     }
+    public function getEntrenador($id_liga,$id_equipo)
+    {
+        $id_entrenador = Equipo::select('id_entrenador')->where('id',$id_equipo)->get();
+        $entrenador = Entrenador::where('id',$id_entrenador)->get();
+        return $entrenador;
+    }
 }

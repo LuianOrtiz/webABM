@@ -48,4 +48,8 @@ class NoticiaController extends Controller
         return redirect()->route('noticias.index');
 
     }
+    public function getAll(){
+        $noticias = Noticia::all();
+        return $noticias;
+    }
 }

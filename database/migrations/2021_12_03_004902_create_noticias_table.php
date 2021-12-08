@@ -16,12 +16,12 @@ class CreateNoticiasTable extends Migration
         Schema::create('noticias', function (Blueprint $table) {
             $table->id();
             $table->string('titulo',150);
-            $table->binary('portada')->nullable();
+            $table->text('portada')->nullable();
             $table->text('descripcion');
             $table->date('fecha_noticia');
             $table->string('nombre_autor', 100);
-            $table->string('apaterno_autor',100);
-            $table->string('amaterno_autor',60);
+            $table->string('apaterno_autor',100)->nullable();
+            $table->string('amaterno_autor',60)->nullable();
     
             $table->timestamps();
         });

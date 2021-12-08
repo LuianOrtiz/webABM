@@ -49,4 +49,8 @@ class TorneoController extends Controller
         return redirect()->route('torneos.index');
 
     }
+    public function getAll(){
+        $torneos = Torneo::all();
+        return $torneos;
+    }
 }

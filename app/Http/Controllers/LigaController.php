@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Liga;
 use App\Models\Equipo;
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreLiga;
 use App\Http\Requests\UpdateLiga;
@@ -18,8 +19,18 @@ class LigaController extends Controller
         return view('ligas.index', compact('ligas'));
     }
 
-    public function create()
+    public function getAll()
     {
+        $ligas = Liga::all();
+        return $ligas;
+    }
+
+    public function getLiga($id_liga){
+        $liga = Liga::where('id',$id_liga)->get();
+        return $liga;
+    }
+
+    public function create(){
         return view('ligas.create');
     }
 
@@ -38,6 +49,7 @@ class LigaController extends Controller
         return $liga;
         return view('ligas.show', compact('liga','equipos'));
     }
+
 
     public function edit($liga)
     {   
