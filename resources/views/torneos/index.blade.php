@@ -16,7 +16,14 @@
                         <div class="grid">
                             <div class="d-flex justify-content-center">
                                 <a href="{{$torneo->calendario}}" class="parrafo-white">Calenadrio</a>
-                                <a href="{{$torneo->calendario}}" class="parrafo-white">Resultados</a>
+                                <a href="{{$torneo->resultados}}" class="parrafo-white">Resultados</a>
+                            </div>
+                            <div>
+                                <form action="{{route('torneos.destroy', $torneo)}}" method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit">Eliminar</button>
+                                </form>
                             </div>
                         </div>
                     </div>

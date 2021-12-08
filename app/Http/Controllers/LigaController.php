@@ -18,7 +18,8 @@ class LigaController extends Controller
         return view('ligas.index', compact('ligas'));
     }
 
-    public function create(){
+    public function create()
+    {
         return view('ligas.create');
     }
 
@@ -34,7 +35,7 @@ class LigaController extends Controller
 
         $liga_nombre = Liga::select('id')->where('nombre_liga',$liga)->get();
         $equipos = Equipo::where('id_liga',$liga_nombre[0]->id)->get();
-        
+        return $liga;
         return view('ligas.show', compact('liga','equipos'));
     }
 

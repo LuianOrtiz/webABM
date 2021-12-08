@@ -1,17 +1,18 @@
 @extends('layouts.plantilla')
 
-@section('title', 'Torneos create')
+@section('title', 'Torneos edit')
 
 @section('content')
     <h1>En esta pagina podras crear un torneo</h1>
 
-    <form action="{{route('torneos.store')}}" method="POST">
+    <form action="{{route('torneos.update', $torneo)}}" method="POST">
         
         @csrf
+        @method('put')
 
         <label>
-            Nombre del Torneo <br>
-            <input type="text" name="nombre_torneo" value="{{old('nombre_torneo')}}">
+            Nombre del Torneo
+            <input type="text" name="nombre_torneo" value="{{old('nombre_torneo', $torneo->nombre_torneo)}}">
         </label>
         @error('nombre_torneo')
             <br>
@@ -21,8 +22,8 @@
         
         <br>
         <label>
-            Calendario <br>
-            <textarea name="calendario" rows="5">{{old('calendario')}}</textarea>
+            Calendario
+            <textarea name="calendario" rows="5">{{old('calendario', $torneo->calendario)}}</textarea>
         </label>
         @error('calendario')
             <br>
@@ -32,8 +33,8 @@
 
         <br>
         <label>
-            Resultados <br>
-            <textarea name="resultados" rows="5">{{old('resultados')}}</textarea>
+            Resultados
+            <textarea name="resultados" rows="5">{{old('resultados', $torneo->resultados)}}</textarea>
         </label>
         @error('resultados')
             <br>
@@ -42,6 +43,7 @@
         @enderror
             
         <br>
-        <button type="submit">Enviar nuevo torneo</button>
+        <button type="submit">Actualizar torneo</button>
     </form>
 @endsection
+    
