@@ -61,7 +61,8 @@ Route::get('/admon/ligas/{liga}/{equipo}', [EquipoController::class, 'edit'])->n
 Route::put('/admon/ligas/{liga}/{equipo}', [EquipoController::class, 'update'])->name('equipos.update');
 Route::delete('/admon/ligas/{liga}/{equipo}', [EquipoController::class, 'destroy'])->name('equipos.destroy');
 
-//CRUD ENTRENADOR
+//CRUD ENTRENADOR 
+#Cambiar xd
 Route::get('/admon/ligas/{liga}/{equipo}/entrenadores/menu', [EntrenadorController::class, 'index'])->name('entrenadores.index');
 Route::get('/admon/ligas/{liga}/{equipo}/entrenadores/crear', [EntrenadorController::class, 'create'])->name('entrenadores.create');
 Route::post('/admon/{liga}/{equipo}/entrenadores', [EntrenadorController::class, 'store'])->name('entrenadores.store');

@@ -57,7 +57,7 @@
         @enderror
 
         <br>
-        <button type="submit">Enviar nuevo entrenador</button>
+        <button type="submit">Envir edicion del entrenador</button>
     </form>
     
 @endsection
