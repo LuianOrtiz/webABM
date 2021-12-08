@@ -19,16 +19,12 @@ class LigaController extends Controller
 
     public function getAll(){
         $ligas = Liga::all();
-        /*foreach($ligas as $liga){
-            if ($liga->logo_liga != null){
-                try {
-                    $liga->logo_liga = base64_encode($liga->logo_liga);
-                } catch (FileNotFoundException $e) {
-                    return "ERROR ${e}";
-                }
-            }
-        }*/
         return $ligas;
+    }
+
+    public function getLiga($id_liga){
+        $liga = Liga::where('id',$id_liga)->get();
+        return $liga;
     }
 
     public function create(){
@@ -65,6 +61,7 @@ class LigaController extends Controller
         
         return view('ligas.show', compact('liga','equipos'));
     }
+
 
     public function edit($liga)
     {   
