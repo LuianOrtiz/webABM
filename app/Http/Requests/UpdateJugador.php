@@ -13,7 +13,7 @@ class UpdateJugador extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class UpdateJugador extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nombre_jugador' => 'required',
+            'apaterno_jugador' => 'required',
+            'amaterno_jugador' => 'required',
+            'id_equipo' => 'required',
+            'id_posicion' => 'required'
         ];
     }
 }

@@ -13,7 +13,7 @@ class UpdateEntrenador extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class UpdateEntrenador extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nombre_entrenador' => 'required',
+            'apaterno_entrenador' => 'required',
+            'amaterno_entrenador' => 'required',
+            'fecha_nacimiento' => 'required'
         ];
     }
 }

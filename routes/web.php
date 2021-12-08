@@ -59,23 +59,24 @@ Route::get('/admon/ligas/{liga}/equipos/crear', [EquipoController::class, 'creat
 Route::post('/admon/ligas/{liga}/equipos', [EquipoController::class, 'store'])->name('equipos.store');
 Route::get('/admon/ligas/{liga}/{equipo}', [EquipoController::class, 'edit'])->name('equipos.edit');
 Route::put('/admon/ligas/{liga}/{equipo}', [EquipoController::class, 'update'])->name('equipos.update');
-Route::delete('/admon/ligas/{liga}/{equipo}', [EquipoController::class, 'delete'])->name('equipos.delete');
-
-//CRUD JUGADOR
-Route::get('/admon/ligas/{liga}/{equipo}/jugadores', [JugadorController::class, 'index'])->name('jugadores.index');
-Route::get('/admon/ligas/{liga}/{equipo}/jugadores/crear', [JugadorController::class, 'create'])->name('jugadores.create');
-Route::post('/admon/{liga}/{equipo}/jugadores', [JugadorController::class, 'store'])->name('jugadores.store');
-Route::get('/admon/ligas/{liga}/{equipo}/{jugador}', [JugadorController::class, 'edit'])->name('jugadores.edit');
-Route::put('/admon/ligas/{liga}/{equipo}/{jugador}', [JugadorController::class, 'update'])->name('jugadores.update');
-Route::get('/admon/ligas/{liga}/{equipo}/{jugador}', [JugadorController::class, 'delete'])->name('jugadores.delete');
+Route::delete('/admon/ligas/{liga}/{equipo}', [EquipoController::class, 'destroy'])->name('equipos.destroy');
 
 //CRUD ENTRENADOR
-Route::get('/admon/ligas/{liga}/{equipo}/entrenadores', [EntrenadorController::class, 'index'])->name('entrenadores.index');
+Route::get('/admon/ligas/{liga}/{equipo}/entrenadores/menu', [EntrenadorController::class, 'index'])->name('entrenadores.index');
 Route::get('/admon/ligas/{liga}/{equipo}/entrenadores/crear', [EntrenadorController::class, 'create'])->name('entrenadores.create');
 Route::post('/admon/{liga}/{equipo}/entrenadores', [EntrenadorController::class, 'store'])->name('entrenadores.store');
-Route::get('/admon/ligas/{liga}/{equipo}/{entrenador}', [EntrenadorController::class, 'edit'])->name('entrenadores.edit');
-Route::put('/admon/ligas/{liga}/{equipo}/{entrenador}', [EntrenadorController::class, 'update'])->name('entrenadores.update');
-Route::get('/admon/ligas/{liga}/{equipo}/{entrenador}', [EntrenadorController::class, 'delete'])->name('entrenadores.delete');
+Route::get('/admon/ligas/{liga}/{equipo}/entrenadores/{entrenador}', [EntrenadorController::class, 'edit'])->name('entrenadores.edit');
+Route::put('/admon/ligas/{liga}/{equipo}/entrenadores/{entrenador}', [EntrenadorController::class, 'update'])->name('entrenadores.update');
+Route::delete('/admon/ligas/{liga}/{equipo}/entrenadores/{entrenador}', [EntrenadorController::class, 'destroy'])->name('entrenadores.destroy');
+
+//CRUD JUGADOR
+Route::get('/admon/ligas/{liga}/{equipo}/jugadores/menu', [JugadorController::class, 'index'])->name('jugadores.index');
+Route::get('/admon/ligas/{liga}/{equipo}/jugadores/crear', [JugadorController::class, 'create'])->name('jugadores.create');
+Route::post('/admon/{liga}/{equipo}/jugadores', [JugadorController::class, 'store'])->name('jugadores.store');
+Route::get('/admon/ligas/{liga}/{equipo}/jugadores/{jugador}', [JugadorController::class, 'edit'])->name('jugadores.edit');
+Route::put('/admon/ligas/{liga}/{equipo}/jugadores/{jugador}', [JugadorController::class, 'update'])->name('jugadores.update');
+Route::delete('/admon/ligas/{liga}/{equipo}/jugadores/{jugador}', [JugadorController::class, 'destroy'])->name('jugadores.destroy');
+
 
 /*
 //CRUD ADMIN
