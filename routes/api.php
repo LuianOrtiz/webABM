@@ -31,6 +31,6 @@ Route::get('ligas/{liga}/equipos/{Equipo}/jugadores/{jugador}',"App\Http\Control
 //ENTRENADOR
 Route::get('ligas/{liga}/equipos/{Equipo}/entrenador',"App\Http\Controllers\EntrenadorController@getEntrenador");
 //NOTICIAS
-Route::get('/noticias',"App\Http\Controllers\NoticiasController@getAll");
+Route::get('/noticias',"App\Http\Controllers\NoticiaController@getAll");
 //TORNEOS
-Route::get('/torneos',"App\Http\Controllers\TorneosController@getAll");
+Route::get('/torneos',"App\Http\Controllers\TorneoController@getAll");
