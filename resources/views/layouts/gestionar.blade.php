@@ -27,9 +27,9 @@
     <div class="big-container">
         <div class="side-bar">
             <div class="nav-side">
-                <a href="Gestionar.html">Ligas</a>
-                <a>Torneos</a>
-                <a>Noticias</a>
+                <a href="{{route('ligas.index')}}">Ligas</a>
+                <a href="{{route('torneos.index')}}">Torneos</a>
+                <a href="{{route('noticias.index')}}">Noticias</a>
             </div>
             <div class="component-ad">
                 <img src="../assets/icons/Settings.png" width="20px" height="20px">
