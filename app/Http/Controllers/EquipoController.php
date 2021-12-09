@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreEquipo;
 use App\Http\Requests\UpdateEquipo;
+use App\Models\Entrenador;
 use Illuminate\Http\Request;
 use App\Models\Equipo;
 use App\Models\Liga;
@@ -28,28 +29,34 @@ class EquipoController extends Controller
     }
 
     public function create($liga){
-       
-        return view('equipos.create', compact('liga'));
+        $entrenadores = Entrenador::select('id','nombre_entrenador')->get();
+        return view('equipos.create', compact('liga', 'entrenadores'));
     }
 
-    public function store(StoreEquipo $request)
-    {
-        $liga = Liga::select('nombre_liga')->where('id', $request->id_liga)->get();
-        $liga = $liga[0]->nombre_liga;
+    public function store(StoreEquipo $request, $liga)
+    {   
+        $id_liga = Liga::select('id')->where('nombre_liga',$request->id_liga)->get();
+        $request["id_liga"] = $id_liga[0]->id;
+       
         $nuevo_equipo = Equipo::create($request->all());
         return redirect()->route('equipos.index',$liga);
     }
 
 
     public function edit($liga, $equipo)
-    {
+    {   
+        $entrenadores = Entrenador::select('id','nombre_entrenador')->get();
         $equipo_all = Equipo::where('nombre_equipo', $equipo)->get();
         $equipo = $equipo_all[0];
-        return view('equipos.edit', compact('liga','equipo'));
+        $entrenador = Entrenador::select('nombre_entrenador')->where('id', $equipo->id_entrenador)->get();
+        $entrenador = $entrenador[0]->nombre_entrenador;
+        return view('equipos.edit', compact('liga','equipo', 'entrenadores', 'entrenador'));
     }
 
     public function update(UpdateEquipo $request, $liga, $equipo)
-    {
+    {   
+        $id_liga = Liga::select('id')->where('nombre_liga',$request->id_liga)->get();
+        $request["id_liga"] = $id_liga[0]->id;
         $equipo = Equipo::find($equipo);
         $equipo->update($request->all());
         return redirect()->route('equipos.index',$liga);

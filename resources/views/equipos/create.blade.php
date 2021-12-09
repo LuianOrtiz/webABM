@@ -37,19 +37,24 @@
                     <small>*{{$message}}</small>
                     <br>
                 @enderror
-                <input type="text" name="id_liga" value="{{old('id_liga')}}" placeholder="Liga">
+                <input type="text" name="id_liga" value="{{old('nombre_liga', $liga)}}" >
                 @error('id_liga')
                     <br>
                     <small>*{{$message}}</small>
                     <br>
                 @enderror
-                <input type="text" name="id_entrenador" value="{{old('id_entrenador')}}" placeholder="Entrenador">
+                <br>
+                <label >Entrenador: </label>
+                <select name="id_entrenador" style="margin-top: 4em">
+                        @foreach ($entrenadores as $entrenador)
+                        <option value="{{$entrenador->id}}">{{$entrenador->nombre_entrenador}}</option>
+                        @endforeach
+                </select>                    
                 @error('id_entrenador')
                     <br>
                     <small>*{{$message}}</small>
                     <br>
                 @enderror
-
                 <div style="margin-top: 1em">
                     <label for="formFile">Logo</label>
                     <input class="form-control form-control-lg" id="input-file" type="file">

@@ -36,7 +36,7 @@ class LigaController extends Controller
 
     public function store(StoreLiga $request)
     { 
-
+        
         $nueva_liga = Liga::create($request->all()); 
         return redirect()->route('ligas.index');
     
