@@ -4,7 +4,7 @@
 
 @section('crud')
     <div class="text">
-        <h2 id="category">Editar Noticia</h2>
+        <h2 id="category">Editar Torneo</h2>
     </div>
 @endsection
 @section('formulario')
@@ -33,10 +33,6 @@
                 @enderror
                 
                 <div class="last" id="reg-ed-equipo-logo">
-                    <div class="logo">
-                        <p>Logotipo</p>
-                        <button class="ellipse"></button>
-                    </div>
                     <button type="submit" class="btn">Actualizar</button>  
                 </div>
             </form>

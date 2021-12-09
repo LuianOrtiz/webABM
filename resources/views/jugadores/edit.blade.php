@@ -46,10 +46,6 @@
                 @enderror
                 
                 <div class="last" id="reg-ed-equipo-logo">
-                    <div class="logo">
-                        <p>Logotipo</p>
-                        <button class="ellipse"></button>
-                    </div>
                     <button type="submit" class="btn">Actualizar</button>  
                 </div>
             </form>
