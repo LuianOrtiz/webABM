@@ -8,6 +8,7 @@ use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreLiga;
 use App\Http\Requests\UpdateLiga;
+use  Illuminate\Support\Str;
 
 class LigaController extends Controller
 {
@@ -36,10 +37,38 @@ class LigaController extends Controller
 
     public function store(StoreLiga $request)
     { 
+        $liga = new Liga();
+        $liga->nombre_liga = $request->nombre_liga;
+        $liga->nombre_responsable = $request->nombre_responsable;
+        $liga->telefono_responsable = $request->telefono_responsable;
+        $liga->localidad = $request->localidad;
+        $liga->ciudad = $request->ciudad;
+        $liga->edad_minima = $request->edad_minima;
+        $liga->edad_maxima = $request->edad_maxima;
+        //script para subir la imagen
+        if($request->hasFile("imagen")){
+            $imagen = $request->file("imagen");
+            $nombre_imagen = Str::slug($request->nombre_liga).".".$imagen->guessExtension();
+            $ruta = public_path("assets/images/logos-ligas");
+            $imagen->move($ruta,$nombre_imagen);
+            $liga->logo_liga = $nombre_imagen;
+        }
 
-        $nueva_liga = Liga::create($request->all()); 
+        $liga->save();
         return redirect()->route('ligas.index');
-    
+        /*$input = $request->all();
+        if($request->hasFile('image')){
+            
+            $destination_path = '/assets/images/logos-ligas';
+            $image = $request->file('image');
+            $image_name = $image->getClientOriginalName();
+            $path = $request->file('image')->storeAs($destination_path,$image_name);
+            $input['logo_liga'] = $image_name;
+            //return $input;
+        }
+        $nueva_liga = Liga::create($input); */
+        
+        
     }
 
     public function show($liga){
@@ -60,8 +89,23 @@ class LigaController extends Controller
     
     public function update(UpdateLiga $request,$liga)
     {
-
         $liga = Liga::find($liga);
+        $liga->nombre_liga = $request->nombre_liga;
+        $liga->nombre_responsable = $request->nombre_responsable;
+        $liga->telefono_responsable = $request->telefono_responsable;
+        $liga->localidad = $request->localidad;
+        $liga->ciudad = $request->ciudad;
+        $liga->edad_minima = $request->edad_minima;
+        $liga->edad_maxima = $request->edad_maxima;
+        //script para subir la imagen
+        if($request->hasFile("imagen")){
+            $imagen = $request->file("imagen");
+            $nombre_imagen = Str::slug($request->nombre_liga).".".$imagen->guessExtension();
+            $ruta = public_path("assets/images/logos-ligas");
+            $imagen->move($ruta,$nombre_imagen);
+            $liga->logo_liga = $nombre_imagen;
+        }
+
         $liga->update($request->all());
         return redirect()->route('ligas.index');
 

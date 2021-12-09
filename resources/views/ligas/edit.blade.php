@@ -10,7 +10,7 @@
 @section('formulario')
     <div class="registrar-editar">
         <div class="datos">
-            <form action="{{route('ligas.store')}}" method="POST">
+            <form action="{{route('ligas.store')}}" method="PUT">
                 @csrf
                 @method('put')
 
@@ -46,7 +46,7 @@
                 <div class="last" id="reg-ed-equipo-logo">
                     <div style="margin-top: 1em">
                         <label for="formFile">Logo</label>
-                        <input class="form-control form-control-lg" id="input-file" type="file">
+                        <input class="form-control form-control-lg" name="imagen" id="input-file" type="file">
                     </div>
                     <button type="submit" class="btn">Actualizar</button>  
                 </div>
