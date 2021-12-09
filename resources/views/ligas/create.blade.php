@@ -52,20 +52,5 @@
                 </div>
             </form>
         </div>
-        <!--
-        <div class="edades">
-            <form action="action="" method="POST">
-                <label for="edadmin">Edad mínima</label> 
-                <input type="text" name="edad_minima" value="">
-               
-            </form>
-            <form action="action="" method="POST">
-                <label for="edadmax">Edad maxíma</label> 
-                <input type="text" name="edad_maxima" value="">
-                
-            </form>
-        </div>
-        -->
-        
     </div>
 @endsection

@@ -30,6 +30,7 @@
                     <a href="{{route('noticias.index')}}">Noticias</a>
                     <a href="{{route('entrenadores.index')}}">Entrenadores</a>
                 </div>
+                
             </div>
             <div class="average-container">
                 <div class="main-menu">

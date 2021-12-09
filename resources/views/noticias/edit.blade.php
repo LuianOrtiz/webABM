@@ -44,7 +44,7 @@
                     <small>*{{$message}}</small>
                     <br>
                 @enderror
-                <input type="text" name="apaterno_autor" value="{{old('apaterno_autor', $noticia->apaterno_autor)}}" placeholder="Apellido Materno">
+                <input type="text" name="amaterno_autor" value="{{old('amaterno_autor', $noticia->amaterno_autor)}}" placeholder="Apellido Materno">
                 @error('amaterno_autor')
                     <br>
                     <small>*{{$message}}</small>

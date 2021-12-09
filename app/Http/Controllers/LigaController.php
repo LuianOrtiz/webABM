@@ -112,7 +112,7 @@ class LigaController extends Controller
     }
 
     public function destroy($liga)
-    {   
+    {    
         $liga = Liga::find($liga);
         $liga->delete();
         return redirect()->route('ligas.index');
