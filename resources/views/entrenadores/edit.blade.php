@@ -11,7 +11,7 @@
 @section('formulario')
     <div class="registrar-editar">
         <div class="datos">
-            <form action="{{route('jugadores.store', [$liga, $equipo, $entrenador])}}" method="POST">
+            <form action="{{route('entrenadores.update', $entrenador)}}" method="POST">
                 @csrf
                 @method('put')
                 <input type="text" name="nombre_entrenador" placeholder="Nombre del entrenador" value="{{old('nombre_entrenador', $entrenador->nombre_entrenador)}}">
@@ -43,7 +43,7 @@
                         <p>Logotipo</p>
                         <button class="ellipse"></button>
                     </div>
-                    <button type="submit" class="btn">Guardar</button>  
+                    <button type="submit" class="btn">Actualizar</button>  
                 </div>
             </form>
         </div>

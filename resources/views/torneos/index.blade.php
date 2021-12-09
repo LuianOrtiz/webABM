@@ -1,19 +1,19 @@
 @extends('layouts.gestionar')
 
-@section('tittle', 'Torneos')
+@section('title', 'Torneos')
 
 @section('gestor')
     <div class="text">
-        <h2 id="category">Gestionar Noticias</h2>
+        <h2 id="category">Gestionar Torneos</h2>
     </div>
 @endsection
 @section('content')
     @foreach ($torneos as $torneos) 
-        <div class="row">
+        <div class="row" style="background-color: #CAA97E;">
             <h2>{{$torneos->nombre_torneo}}</h2>
             <p></p>
             <div class="commons">
-                <div class="ellipse" style="background-color: var(--ligas-row)" onclick="location.href = '{{route('torneos.edit',$torneos->nombre_torneo)}}';">
+                <div class="ellipse" style="background-color: #CAA97E;" onclick="location.href = '{{route('torneos.edit',$torneos->nombre_torneo)}}';">
                     <img src="/assets/icons/Edit.png" width="15px" height="15px">
                 </div>
                 <div class="ellipse" style="background-color: red;" >

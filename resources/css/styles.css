@@ -29,6 +29,10 @@ h2{
     font-size: 20px; 
 }
 
+.rutasanidadas{
+    color: whitesmoke;
+    text-decoration: none;
+}
 .text{
     display: flex;
     flex-direction: row;

@@ -13,7 +13,7 @@
 @section('content')
     @foreach ($equipos as $equipo)
         <div class="row">
-            <h2>{{$equipo->nombre_equipo}}</h2>
+            <a style="text-decoration: none;" href="{{route('jugadores.index', [$liga, $equipo->nombre_equipo])}}"><h2 style="color: white;">{{$equipo->nombre_equipo}}</h2></a>
             <p></p>
             <div class="commons">
                 <div class="ellipse" style="background-color: var(--ligas-row)" onclick="location.href = '{{route('equipos.edit', [$liga, $equipo->nombre_equipo])}}';">

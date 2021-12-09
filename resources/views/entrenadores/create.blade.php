@@ -1,6 +1,6 @@
 @extends('layouts.re_liga')
 
-@section('title', 'Entrenadores create')
+@section('title', 'Entrenadores edit')
 
 @section('crud')
 <div class="text">
@@ -11,7 +11,7 @@
 @section('formulario')
     <div class="registrar-editar">
         <div class="datos">
-            <form action="{{route('jugadores.store', [$liga, $equipo])}}" method="POST">
+            <form action="{{route('entrenadores.store')}}" method="POST">
                 @csrf
 
                 <input type="text" name="nombre_entrenador" placeholder="Nombre del entrenador" value="{{old('nombre_entrenador')}}">

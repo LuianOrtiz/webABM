@@ -10,11 +10,11 @@
 
 @section('content')
     @foreach ($noticias as $noticia) 
-        <div class="row">
+        <div class="row" style="background-color: #3C4A1E;">
             <h2>{{$noticia->titulo}}</h2>
             <p></p>
             <div class="commons">
-                <div class="ellipse" style="background-color: var(--ligas-row)" onclick="location.href = '{{route('noticias.edit',$noticia->titulo)}}';">
+                <div class="ellipse" style="background-color: #3C4A1E;" onclick="location.href = '{{route('noticias.edit',$noticia->titulo)}}';">
                     <img src="/assets/icons/Edit.png" width="15px" height="15px">
                 </div>
                 <div class="ellipse" style="background-color: red;" >

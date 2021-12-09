@@ -11,49 +11,45 @@ use Illuminate\Http\Request;
 
 class EntrenadorController extends Controller
 {
-    public function index($liga, $equipo)
-    {   
-        //$equipo_id = Equipo::select('id')->where('nombre_equipo', $equipo)->get();
-        //$entrenadores_id = Equipo::select('id_entrenador')->where('id', $equipo_id[0]->id)->get();
-        //$entrenadores = Entrenador::where('id', $entrenadores_id[0]->id_entrenador)->get();
-        //return $entrenadores;
+    public function index()
+    { 
         $entrenadores = Entrenador::all();
-        return view('entrenadores.index', compact('liga','equipo','entrenadores'));
+        return view('entrenadores.index', compact('entrenadores'));
     }
 
-    public function create($liga, $equipo)
+    public function create()
     {
-        return view('entrenadores.create', compact('liga','equipo'));
+        return view('entrenadores.create');
 
     }
 
-    public function store(StoreEntrenador $request, $liga, $equipo)
+    public function store(StoreEntrenador $request)
     {
         $nuevo_entrenador = Entrenador::create($request->all());
-        return redirect()->route('entrenadores.index', [$liga, $equipo]);
+        return redirect()->route('entrenadores.index');
 
 
     }
 
-    public function edit($liga, $equipo, $entrenador)
+    public function edit($entrenador)
     {
         $entrenador = Entrenador::where('nombre_entrenador', $entrenador)->get();
         $entrenador = $entrenador[0];
-        return view('entrenadores.edit', compact('liga','equipo','entrenador'));
+        return view('entrenadores.edit', compact('entrenador'));
     }
 
-    public function update(UpdateEntrenador $request, $liga, $equipo, $entrenador)
+    public function update(UpdateEntrenador $request, $entrenador)
     {
         $entrenador = Entrenador::find($entrenador);
         $entrenador->update($request->all());
-        return redirect()->route('entrenadores.index', [$liga, $equipo]);
+        return redirect()->route('entrenadores.index');
     }
 
-    public function destroy($liga, $equipo, $entrenador)
+    public function destroy($entrenador)
     {
         $entrenador = Entrenador::find($entrenador);
         $entrenador->delete();
-        return redirect()->route('entrenadores.index', $liga, $equipo);
+        return redirect()->route('entrenadores.index');
     }
     public function getEntrenador($id_liga,$id_equipo)
     {

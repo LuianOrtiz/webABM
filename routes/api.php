@@ -29,7 +29,7 @@ Route::get('ligas/{liga}/equipos/{Equipo}/',"App\Http\Controllers\EquipoControll
 Route::get('ligas/{liga}/equipos/{Equipo}/jugadores',"App\Http\Controllers\JugadorController@getAll");
 Route::get('ligas/{liga}/equipos/{Equipo}/jugadores/{jugador}',"App\Http\Controllers\JugadorController@getJugador");
 //ENTRENADOR
-Route::get('ligas/{liga}/equipos/{Equipo}/entrenador',"App\Http\Controllers\EntrenadorController@getEntrenador");
+//Route::get('ligas/{liga}/equipos/{Equipo}/entrenador',"App\Http\Controllers\EntrenadorController@getEntrenador");
 //NOTICIAS
 Route::get('/noticias',"App\Http\Controllers\NoticiaController@getAll");
 //TORNEOS

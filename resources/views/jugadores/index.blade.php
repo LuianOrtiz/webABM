@@ -4,7 +4,7 @@
 
 @section('gestor')
     <div class="text">
-        <h2 id="category">Gestionar Equipos</h2>
+        <h2 id="category">Gestionar Jugadores</h2>
     </div>
 @endsection
 
@@ -26,7 +26,7 @@
 @endsection
 
 @section('agregar')
-    <div class="ellipse" id="floating" onclick="location.href = '';">
+    <div class="ellipse" id="floating" onclick="location.href = '{{route('jugadores.create', [$liga, $equipo])}}';">
         <p>+</p>
     </div>
 @endsection
