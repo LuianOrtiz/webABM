@@ -11,8 +11,9 @@ use App\Models\Liga;
 class EquipoController extends Controller
 {
     public function index($liga){
-
-        return view('equipos.index', compact('liga'));
+        $liga_id = Liga::select('id')->where('nombre_liga', $liga)->get();
+        $equipos = Equipo::where('id_liga', $liga_id[0]->id)->get();
+        return view('equipos.index', compact('liga', 'equipos'));
     }
 
     public function getAll($id_liga){

@@ -1,49 +1,46 @@
-@extends('layouts.plantilla')
+@extends('layouts.re_liga')
 
 @section('title', 'Torneos edit')
 
-@section('content')
-    <h1>En esta pagina podras crear un torneo</h1>
+@section('crud')
+    <div class="text">
+        <h2 id="category">Editar Noticia</h2>
+    </div>
+@endsection
+@section('formulario')
+    <div class="registrar-editar">
+        <div class="datos">
+            <form action="{{route('torneos.update', $torneo)}}" method="POST">
+                @csrf
+                @method('put')
 
-    <form action="{{route('torneos.update', $torneo)}}" method="POST">
-        
-        @csrf
-        @method('put')
-
-        <label>
-            Nombre del Torneo
-            <input type="text" name="nombre_torneo" value="{{old('nombre_torneo', $torneo->nombre_torneo)}}">
-        </label>
-        @error('nombre_torneo')
-            <br>
-            <small>*{{$message}}</small>
-            <br>
-        @enderror
-        
-        <br>
-        <label>
-            Calendario
-            <textarea name="calendario" rows="5">{{old('calendario', $torneo->calendario)}}</textarea>
-        </label>
-        @error('calendario')
-            <br>
-            <small>*{{$message}}</small>
-            <br>
-        @enderror
-
-        <br>
-        <label>
-            Resultados
-            <textarea name="resultados" rows="5">{{old('resultados', $torneo->resultados)}}</textarea>
-        </label>
-        @error('resultados')
-            <br>
-            <small>*{{$message}}</small>
-            <br>
-        @enderror
-            
-        <br>
-        <button type="submit">Actualizar torneo</button>
-    </form>
+                <input type="text" name="nombre_torneo" value="{{old('nombre_torneo', $torneo->nombre_torneo)}}" placeholder="Nombre del Torneo">
+                @error('nombre_torneo')
+                <small>*{{$message}}</small>
+                <br>
+                @enderror
+                <input type="text" name="calendario" value="{{old('calendario', $torneo->calendario)}}" placeholder="Calendario">
+                @error('calendario')
+                    <br>
+                    <small>*{{$message}}</small>
+                    <br>
+                @enderror
+                <input type="text" name="resultados" value="{{old('resultados', $torneo->resultados)}}" placeholder="Resultados">
+                @error('resultados')
+                    <br>
+                    <small>*{{$message}}</small>
+                    <br>
+                @enderror
+                
+                <div class="last" id="reg-ed-equipo-logo">
+                    <div class="logo">
+                        <p>Logotipo</p>
+                        <button class="ellipse"></button>
+                    </div>
+                    <button type="submit" class="btn">Actualizar</button>  
+                </div>
+            </form>
+        </div>
+    </div>
 @endsection
     

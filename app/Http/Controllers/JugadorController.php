@@ -13,7 +13,9 @@ class JugadorController extends Controller
 {
     public function index($liga, $equipo)
     {
-        return view('jugadores.index', compact('liga','equipo'));
+        $equipo_id = Equipo::select('id')->where('nombre_equipo', $equipo)->get();
+        $jugadores = Jugador::where('id_equipo', $equipo_id[0]->id)->get();
+        return view('jugadores.index', compact('liga','equipo', 'jugadores'));
     }
 
     public function create($liga, $equipo)

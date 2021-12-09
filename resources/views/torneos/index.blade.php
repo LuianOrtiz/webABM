@@ -1,40 +1,30 @@
-@extends('layouts.plantilla')
+@extends('layouts.gestionar')
+
 @section('tittle', 'Torneos')
 
+@section('gestor')
+    <div class="text">
+        <h2 id="category">Gestionar Noticias</h2>
+    </div>
+@endsection
 @section('content')
-    <section>
-        <h2 class="titulo">Torneos</h2>
-    </section>
-
-    <section>
-        @foreach ($torneos as $torneo)
-        <div class="grid" id="torneos">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="container-r Container-big bg-primary justify-content-center mb-4">
-                        <h2 class="encabezado d-flex justify-content-center mb-5 p-5">{{$torneo->nombre_torneo}} </h2>
-                        <div class="grid">
-                            <div class="d-flex justify-content-center">
-                                <a href="{{$torneo->calendario}}" class="parrafo-white">Calenadrio</a>
-                                <a href="{{$torneo->resultados}}" class="parrafo-white">Resultados</a>
-                            </div>
-                            <div>
-                                <form action="{{route('torneos.destroy', $torneo)}}" method="POST">
-                                    @csrf
-                                    @method('delete')
-                                    <button type="submit">Eliminar</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+    @foreach ($torneos as $torneos) 
+        <div class="row">
+            <h2>{{$torneos->nombre_torneo}}</h2>
+            <p></p>
+            <div class="commons">
+                <div class="ellipse" style="background-color: var(--ligas-row)" onclick="location.href = '{{route('torneos.edit',$torneos->nombre_torneo)}}';">
+                    <img src="/assets/icons/Edit.png" width="15px" height="15px">
+                </div>
+                <div class="ellipse" style="background-color: red;" >
+                <img src="/assets/icons/Delete.png" width="15px" height="15px">
                 </div>
             </div>
-        </div>    
-        @endforeach
-    </section>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <script src="/js/index.js"></script>
+        </div>
+    @endforeach
+@endsection
+@section('agregar')
+    <div class="ellipse" id="floating" onclick="location.href = '{{route('torneos.create')}}';">
+        <p>+</p>
+    </div>
 @endsection

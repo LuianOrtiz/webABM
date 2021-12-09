@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    @yield('recursos')
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> 
     <title>@yield('title')</title>
@@ -20,7 +19,7 @@
         -->
         <div class="component">
             <div class="ellipse">
-                <img src="/assets/icons/User Male.png" width="20px" align="center">
+                <img src="../assets/icons/User Male.png" width="20px" align="center">
             </div>
             <span class="admin-name">Nombre Administrador</span> 
         </div>
@@ -28,12 +27,12 @@
     <div class="big-container">
         <div class="side-bar">
             <div class="nav-side">
-                <a href="{{route('ligas.index')}}">Ligas</a>
-                <a href="{{route('torneos.index')}}">Torneos</a>
-                <a href="{{route('noticias.index')}}">Noticias</a>
+                <a href="Gestionar.html">Ligas</a>
+                <a>Torneos</a>
+                <a>Noticias</a>
             </div>
             <div class="component-ad">
-                <img src="/assets/icons/Settings.png" width="20px" height="20px">
+                <img src="../assets/icons/Settings.png" width="20px" height="20px">
                 <span>Administrador</span>
             </div>
         </div>

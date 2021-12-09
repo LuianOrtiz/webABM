@@ -12,8 +12,13 @@ use Illuminate\Http\Request;
 class EntrenadorController extends Controller
 {
     public function index($liga, $equipo)
-    {
-        return view('entrenadores.index', compact('liga','equipo'));
+    {   
+        //$equipo_id = Equipo::select('id')->where('nombre_equipo', $equipo)->get();
+        //$entrenadores_id = Equipo::select('id_entrenador')->where('id', $equipo_id[0]->id)->get();
+        //$entrenadores = Entrenador::where('id', $entrenadores_id[0]->id_entrenador)->get();
+        //return $entrenadores;
+        $entrenadores = Entrenador::all();
+        return view('entrenadores.index', compact('liga','equipo','entrenadores'));
     }
 
     public function create($liga, $equipo)

@@ -1,44 +1,59 @@
 @section('content')
-    <section>
-        <h2 class="titulo">Nuestras Ligas</h2>
-    </section>
-    <section id="Lista-ligas">
-        @foreach ($ligas as $liga)
-        <div>
-            <div class="liga">
-                <div class="container-circle liga-logo">
-                    <div class="container-r container-big">
-                        <div class="liga-info">
-                                <h2 class="encabezado">{{$liga->nombre_liga}}</h2>
-                                <p class="parrafo white">
-                                    {{$liga->localidad}}<br>
-                                    De {{$liga->edad_minima}} a {{$liga->edad_maxima}} años <br>
-                                    Responsable: {{$liga->nombre_responsable}}<br>
-                                    Contacto: {{$liga->telefono_responsable}}<br> 
-                                </p>
-                                <div class="btn-equipos">
-                                    <a href="" class="btn btn-outline-light ps-5 pe-5 pt-2 pb-2">Equipos</a>
-                                </div>
-                                <div>
-                                    <form action="{{route('ligas.destroy', $liga)}}" method="POST">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit">Eliminar</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @endforeach
-    </section>
+    <h1>Bienvenido al entrenador del equipo {{$equipo}} de la liga {{$liga}}</h1>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <script src="/js/index.js"></script>
-    {{$ligas->links()}} 
+    <form action="{{route('entrenadores.update', [$liga, $equipo, $entrenador])}}" method="POST">
+        
+        @csrf
+        @method('put')
 
+        <label>
+            Nombre del entrenador: <br>
+            <input type="text" name="nombre_entrenador" value="{{old('nombre_entrenador', $entrenador->nombre_entrenador)}}">
+        </label>
+        @error('nombre_entrenador')
+            <br>
+            <small><*{{$message}}/small>
+            <br>
+        @enderror
+
+        <br>
+        
+        <label>
+            Apellido Paterno del entrenador: <br>
+            <input type="text" name="apaterno_entrenador" value="{{old('apaterno_entrenador', $entrenador->apaterno_entrenador)}}">
+        </label>
+        @error('apaterno_entrenador')
+            <br>
+            <small><*{{$message}}/small>
+            <br>
+        @enderror
+
+        <br>
+        
+        <label>
+            Apellido materno del entrenador: <br>
+            <input type="text" name="amaterno_entrenador" value="{{old('amaterno_entrenador', $entrenador->amaterno_entrenador)}}">
+        </label>
+        @error('amaterno_entrenador')
+            <br>
+            <small><*{{$message}}/small>
+            <br>
+        @enderror
+
+        <br>
+        
+        <label>
+            Fecha de nacimiento del entrenador <br>
+            <input type="date" name="fecha_nacimiento" value="{{old('fecha_nacimiento', $entrenador->fecha_nacimiento)}}">
+        </label>
+        @error('fecha_nacimiento')
+            <br>
+            <small><*{{$message}}/small>
+            <br>
+        @enderror
+
+        <br>
+        <button type="submit">Envir edicion del entrenador</button>
+    </form>
+    
 @endsection

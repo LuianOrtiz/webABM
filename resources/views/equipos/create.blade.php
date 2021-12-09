@@ -1,79 +1,63 @@
-@extends('layouts.plantilla')
+@extends('layouts.re_liga')
 
 @section('title', 'Equipos create')
-    
-@section('content')
-    <h1>En esta página podrás crear un equipo</h1>    
-    <form action="{{route('equipos.store', $liga)}}" method="POST">
-        
-        @csrf
 
-        <label>
-            Nombre del equipo: <br>
-            <input type="text" name="nombre_equipo" value="{{old('nombre_equipo')}}">
-        </label>
-        @error('nombre_equipo')
-            <br>
-            <small>*{{$message}}</small>
-            <br>
-        @enderror
+@section('crud')
+<div class="text">
+    <h2 id="category">Registrar Equipo</h2>
+</div>
+@endsection
 
-        <br>
-        <label>
-           Nombre del manager: <br>
-            <input type="text" name="nombre_manager" value="{{old('nombre_manager')}}">
-        </label>
-        @error('nombre_manager')
-            <br>
-            <small>*{{$message}}</small>
-            <br>
-        @enderror
-        
-        <br>
-        <label>
-            Apellido Paterno del Manager: <br>
-            <input type="text" name="apaterno_manager" value="{{old('apaterno_manager')}}">
-        </label>
-        @error('apaterno_manager')
-            <br>
-            <small>*{{$message}}</small>
-            <br>
-        @enderror
-        
-        <br>
-        <label>
-            Apellido materno del Manager: <br>
-            <input type="text" name="amaterno_manager" value="{{old('amaterno_manager')}}">
-        </label>
-        @error('amaterno_manager')
-            <br>
-            <small>*{{$message}}</small>
-            <br>
-        @enderror
+@section('formulario')
+    <div class="registrar-editar">
+        <div class="datos">
+            <form action="{{route('equipos.store', $liga)}}" method="POST">
+                @csrf
 
-        <br>
-        <label>
-            Numero de la liga: <br>
-            <input type="number" name="id_liga" value="{{old('id_liga')}}">
-        </label>
-        @error('id_liga')
-            <br>
-            <small>*{{$message}}</small>
-            <br>
-        @enderror
-
-        <br>
-        <label>
-            Numero del entrenador: <br>
-            <input type="number" name="id_entrenador" value="{{old('id_entrenador')}}">
-        </label>
-        @error('id_entrenador')
-            <br>
-            <small>*{{$message}}</small>
-            <br>
-        @enderror
-
-        <br>
-        <button type="submit">Enviar nuevo equipo</button>
-    </form>
+                <input type="text" name="nombre_equipo" placeholder="Nombre del equipo" value="{{old('nombre_equipo')}}">
+                @error('nombre_equipo')
+                <small>*{{$message}}</small>
+                <br>
+                @enderror
+                <input type="text"name="nombre_manager" value="{{old('nombre_manager')}}" placeholder="Nombre del Manager">
+                @error('nombre_manager')
+                    <br>
+                    <small>*{{$message}}</small>
+                    <br>
+                @enderror
+                <input type="text" name="apaterno_manager" value="{{old('apaterno_manager')}}" placeholder="Apellido Paterno">
+                @error('apaterno_manager')
+                    <br>
+                    <small>*{{$message}}</small>
+                    <br>
+                @enderror
+                <input type="text" name="amaterno_manager" value="{{old('amaterno_manager')}}" placeholder="Apellido Materno">
+                @error('amaterno_manager')
+                    <br>
+                    <small>*{{$message}}</small>
+                    <br>
+                @enderror
+                <input type="text" name="id_liga" value="{{old('id_liga')}}" placeholder="Liga">
+                @error('id_liga')
+                    <br>
+                    <small>*{{$message}}</small>
+                    <br>
+                @enderror
+                <input type="text" name="id_entrenador" value="{{old('id_entrenador')}}" placeholder="Entrenador">
+                @error('id_entrenador')
+                    <br>
+                    <small>*{{$message}}</small>
+                    <br>
+                @enderror
+                
+                <div class="last" id="reg-ed-equipo-logo">
+                    <div class="logo">
+                        <p>Logotipo</p>
+                        <button class="ellipse"></button>
+                    </div>
+                    <button type="submit" class="btn">Guardar</button>  
+                </div>
+            </form>
+        </div>
+    </div>
 @endsection

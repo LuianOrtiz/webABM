@@ -14,7 +14,7 @@ class LigaController extends Controller
     //
     public function index(){
 
-        $ligas = Liga::paginate();
+        $ligas = Liga::all();
         
         return view('ligas.index', compact('ligas'));
     }

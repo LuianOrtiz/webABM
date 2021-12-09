@@ -1,47 +1,59 @@
-@extends('layouts.plantilla')
+@extends('layouts.re_liga')
 
 @section('title', 'Torneos create')
 
-@section('content')
-    <h1>En esta pagina podras crear un torneo</h1>
+@section('crud')
+    <div class="text">
+        <h2 id="category">Crear Noticia</h2>
+    </div>
+@endsection
+@section('formulario')
+    <div class="registrar-editar">
+        <div class="datos">
+            <form action="{{route('torneos.store')}}" method="POST">
+                @csrf
 
-    <form action="{{route('torneos.store')}}" method="POST">
-        
-        @csrf
+                <input type="text" name="nombre_torneo" value="{{old('nombre_torneo')}}" placeholder="Nombre del Torneo">
+                @error('nombre_torneo')
+                <small>*{{$message}}</small>
+                <br>
+                @enderror
+                <input type="text" name="calendario" value="{{old('calendario')}}" placeholder="Calendario">
+                @error('calendario')
+                    <br>
+                    <small>*{{$message}}</small>
+                    <br>
+                @enderror
+                <input type="text" name="resultados" value="{{old('resultados')}}" placeholder="Resultados">
+                @error('resultados')
+                    <br>
+                    <small>*{{$message}}</small>
+                    <br>
+                @enderror
 
-        <label>
-            Nombre del Torneo <br>
-            <input type="text" name="nombre_torneo" value="{{old('nombre_torneo')}}">
-        </label>
-        @error('nombre_torneo')
-            <br>
-            <small>*{{$message}}</small>
-            <br>
-        @enderror
-        
-        <br>
-        <label>
-            Calendario <br>
-            <textarea name="calendario" rows="5">{{old('calendario')}}</textarea>
-        </label>
-        @error('calendario')
-            <br>
-            <small>*{{$message}}</small>
-            <br>
-        @enderror
-
-        <br>
-        <label>
-            Resultados <br>
-            <textarea name="resultados" rows="5">{{old('resultados')}}</textarea>
-        </label>
-        @error('resultados')
-            <br>
-            <small>*{{$message}}</small>
-            <br>
-        @enderror
-            
-        <br>
-        <button type="submit">Enviar nuevo torneo</button>
+                <div class="last" id="reg-ed-equipo-logo">
+                    <div class="logo">
+                        <p>Logotipo</p>
+                        <button class="ellipse"></button>
+                    </div>
+                    <button type="submit" class="btn">Enviar</button>  
+                </div>
+            </form>
+        </div>
+<!--
+<div class="edades">
+    <form action="action="" method="POST">
+        <label for="edadmin">Edad mínima</label> 
+        <input type="text" name="edad_minima" value="">
+       
     </form>
+    <form action="action="" method="POST">
+        <label for="edadmax">Edad maxíma</label> 
+        <input type="text" name="edad_maxima" value="">
+        
+    </form>
+</div>
+-->
+
+    </div>
 @endsection

@@ -1,63 +1,53 @@
-@extends('layouts.registrar_editar_entrenador')
+@extends('layouts.re_liga')
 
-@section('title', 'Entrenadores')
+@section('title', 'Entrenadores create')
 
-@section('content')
-    <h1>Bienvenido al entrenador del equipo {{$equipo}} de la liga {{$liga}}</h1>
-
-    <form action="{{route('entrenadores.store', [$liga, $equipo])}}" method="POST">
-        
-        @csrf
-
-        <label>
-            Nombre del entrenador: <br>
-            <input type="text" name="nombre_entrenador" value="{{old('nombre_entrenador')}}">
-        </label>
-        @error('nombre_entrenador')
-            <br>
-            <small><*{{$message}}/small>
-            <br>
-        @enderror
-
-        <br>
-        
-        <label>
-            Apellido Paterno del entrenador: <br>
-            <input type="text" name="apaterno_entrenador" value="{{old('apaterno_entrenador')}}">
-        </label>
-        @error('apaterno_entrenador')
-            <br>
-            <small><*{{$message}}/small>
-            <br>
-        @enderror
-
-        <br>
-        
-        <label>
-            Apellido materno del entrenador: <br>
-            <input type="text" name="amaterno_entrenador" value="{{old('amaterno_entrenador')}}">
-        </label>
-        @error('amaterno_entrenador')
-            <br>
-            <small><*{{$message}}/small>
-            <br>
-        @enderror
-
-        <br>
-        
-        <label>
-            Fecha de nacimiento del entrenador <br>
-            <input type="date" name="fecha_nacimiento" value="{{old('fecha_nacimiento')}}">
-        </label>
-        @error('fecha_nacimiento')
-            <br>
-            <small><*{{$message}}/small>
-            <br>
-        @enderror
-
-        <br>
-        <button type="submit">Enviar nuevo entrenador</button>
-    </form>
-    
+@section('crud')
+<div class="text">
+    <h2 id="category">Registrar Entrenador</h2>
+</div>
 @endsection
+
+@section('formulario')
+    <div class="registrar-editar">
+        <div class="datos">
+            <form action="{{route('jugadores.store', [$liga, $equipo])}}" method="POST">
+                @csrf
+
+                <input type="text" name="nombre_entrenador" placeholder="Nombre del entrenador" value="{{old('nombre_entrenador')}}">
+                @error('nombre_entrenador')
+                <small>*{{$message}}</small>
+                <br>
+                @enderror
+                <input type="text"name="apaterno_entrenador" value="{{old('apaterno_entrenador')}}" placeholder="Apellido Paterno">
+                @error('apaterno_jugador')
+                    <br>
+                    <small>*{{$message}}</small>
+                    <br>
+                @enderror
+                <input type="text" name="amaterno_entrenador" value="{{old('amaterno_entrenador')}}" placeholder="Apellido Materno">
+                @error('amaterno_jugador')
+                    <br>
+                    <small>*{{$message}}</small>
+                    <br>
+                @enderror
+                <input type="date" name="fecha_nacimiento" value="{{old('fecha_nacimiento')}}" placeholder="Fecha Nacimiento">
+                @error('fecha_nacimiento')
+                    <br>
+                    <small>*{{$message}}</small>
+                    <br>
+                @enderror
+                
+                <div class="last" id="reg-ed-equipo-logo">
+                    <div class="logo">
+                        <p>Logotipo</p>
+                        <button class="ellipse"></button>
+                    </div>
+                    <button type="submit" class="btn">Guardar</button>  
+                </div>
+            </form>
+        </div>
+    </div>
+@endsection
+
   

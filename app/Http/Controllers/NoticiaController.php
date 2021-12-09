@@ -12,7 +12,7 @@ class NoticiaController extends Controller
     public function index()
     {
         $noticias = Noticia::paginate();
-        return view('noticias.index',compact('noticias'));
+        return view('noticias.index', compact('noticias'));
     }
 
     public function create()
@@ -30,6 +30,8 @@ class NoticiaController extends Controller
     {
         $noticia = Noticia::where('titulo', $noticia)->get();
         $noticia = $noticia[0];
+        
+        //return $noticia;
         return view('noticias.edit', compact('noticia'));
     }
     

@@ -1,81 +1,78 @@
-@extends('layouts.plantilla')
+@extends('layouts.re_liga')
 
 @section('title', 'Noticias create')
 
-@section('content')
-    <h1>Creación de noticias</h1>
+@section('crud')
+    <div class="text">
+        <h2 id="category">Crear Noticia</h2>
+    </div>
+@endsection
 
-    <form action="{{route('noticias.store')}}" method="POST">
+@section('formulario')
+    <div class="registrar-editar">
+        <div class="datos">
+            <form action="{{route('noticias.store')}}" method="POST">
+                @csrf
+
+                <input type="text" name="titulo" placeholder="Titulo" value="{{old('titulo')}}">
+                @error('titulo')
+                <small>*{{$message}}</small>
+                <br>
+                @enderror
+                <input type="text"name="descripcion" value="{{old('descripcion')}}" placeholder="Nombre del responsable">
+                @error('descripcion')
+                    <br>
+                    <small>*{{$message}}</small>
+                    <br>
+                @enderror
+                <input type="text" name="fecha_noticia" value="{{old('fecha_noticia')}}" placeholder="Fecha noticia">
+                @error('fecha_noticia')
+                    <br>
+                    <small>*{{$message}}</small>
+                    <br>
+                @enderror
+                <input type="text" name="nombre_autor" value="{{old('nombre_autor')}}" placeholder="Autor">
+                @error('nombre_autor')
+                    <br>
+                    <small>*{{$message}}</small>
+                    <br>
+                @enderror
+                <input type="text" name="apaterno_autor" value="{{old('apaterno_autor')}}" placeholder="Apellido Paterno">
+                @error('apaterno_autor')
+                    <br>
+                    <small>*{{$message}}</small>
+                    <br>
+                @enderror
+                <input type="text" name="apaterno_autor" value="{{old('apaterno_autor')}}" placeholder="Apellido Materno">
+                @error('amaterno_autor')
+                    <br>
+                    <small>*{{$message}}</small>
+                    <br>
+                @enderror
+                
+                <div class="last" id="reg-ed-equipo-logo">
+                    <div class="logo">
+                        <p>Logotipo</p>
+                        <button class="ellipse"></button>
+                    </div>
+                    <button type="submit" class="btn">Enviar</button>  
+                </div>
+            </form>
+        </div>
+<!--
+<div class="edades">
+    <form action="action="" method="POST">
+        <label for="edadmin">Edad mínima</label> 
+        <input type="text" name="edad_minima" value="">
        
-        @csrf
-        
-        <label >
-            Titulo:<br>
-            <input type="text" name="titulo" value="{{old('titulo')}}">
-        </label>
-        @error('titulo')
-            <br>
-            <small>*{{$message}}</small>
-            <br>
-        @enderror
-        
-        <br>
-        <label >
-            Descripción:<br>
-            <textarea name="descripcion" rows="5">{{old('descripcion')}}</textarea>
-        </label>
-        @error('descripcion')
-            <br>
-            <small>*{{$message}}</small>
-            <br>
-        @enderror
-        
-        <br>
-        <label >
-            Fecha:<br>
-            <input type="date" name="fecha_noticia" value="{{old('fecha_noticia')}}">
-        </label>
-        @error('fecha_noticia')
-            <br>
-            <small>*{{$message}}</small>
-            <br>
-        @enderror
-
-        <br>
-        <label>
-            Nombre del autor:<br>
-            <input type="text" name="nombre_autor" value="{{old('nombre_autor')}}">
-        </label>
-        @error('nombre_autor')
-            <br>
-            <small>*{{$message}}</small>
-            <br>
-        @enderror
-
-        <br>
-        <label >
-            Apellido Paterno del autor:<br>
-            <input type="text" name="apaterno_autor" value="{{old('apaterno_autor')}}">
-        </label>
-        @error('apaterno_autor')
-            <br>
-            <small>*{{$message}}</small>
-            <br>
-        @enderror
-
-        <br>
-        <label >
-            Apellido Materno del autor:<br>
-            <input type="text" name="amaterno_autor" value="{{old('amaterno_autor')}}">
-        </label>
-        @error('amaterno_autor')
-            <br>
-            <small>*{{$message}}</small>
-            <br>
-        @enderror
-
-
-        <br>
-        <button type="submit">Enviar nueva noticia</button>
     </form>
+    <form action="action="" method="POST">
+        <label for="edadmax">Edad maxíma</label> 
+        <input type="text" name="edad_maxima" value="">
+        
+    </form>
+</div>
+-->
+
+    </div>
 @endsection
