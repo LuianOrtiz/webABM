@@ -19,13 +19,13 @@
                 <small>*{{$message}}</small>
                 <br>
                 @enderror
-                <input type="text"name="descripcion" value="{{old('descripcion')}}" placeholder="Nombre del responsable">
+                <input type="text"name="descripcion" value="{{old('descripcion')}}" placeholder="Descripción">
                 @error('descripcion')
                     <br>
                     <small>*{{$message}}</small>
                     <br>
                 @enderror
-                <input type="text" name="fecha_noticia" value="{{old('fecha_noticia')}}" placeholder="Fecha noticia">
+                <input type="date" name="fecha_noticia" value="{{old('fecha_noticia')}}" placeholder="Fecha noticia">
                 @error('fecha_noticia')
                     <br>
                     <small>*{{$message}}</small>
@@ -43,7 +43,7 @@
                     <small>*{{$message}}</small>
                     <br>
                 @enderror
-                <input type="text" name="apaterno_autor" value="{{old('apaterno_autor')}}" placeholder="Apellido Materno">
+                <input type="text" name="amaterno_autor" value="{{old('amaterno_autor')}}" placeholder="Apellido Materno">
                 @error('amaterno_autor')
                     <br>
                     <small>*{{$message}}</small>

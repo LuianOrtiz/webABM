@@ -47,10 +47,10 @@ class JugadorController extends Controller
     }
 
     public function destroy($liga, $equipo, $jugador)
-    {
+    {   
         $jugador = Jugador::find($jugador);
         $jugador->delete();
-        return redirect()->route('jugadores.index', $liga, $equipo);
+        return redirect()->route('jugadores.index', [$liga, $equipo]);
     }
 
     public function getAll($id_liga,$id_equipo){

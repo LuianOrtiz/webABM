@@ -60,7 +60,6 @@ class LigaController extends Controller
     
     public function update(UpdateLiga $request,$liga)
     {
-
         $liga = Liga::find($liga);
         $liga->update($request->all());
         return redirect()->route('ligas.index');
@@ -68,7 +67,7 @@ class LigaController extends Controller
     }
 
     public function destroy($liga)
-    {   
+    {    
         $liga = Liga::find($liga);
         $liga->delete();
         return redirect()->route('ligas.index');

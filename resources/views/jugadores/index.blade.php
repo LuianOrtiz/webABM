@@ -17,9 +17,13 @@
                 <div class="ellipse" style="background-color: var(--ligas-row)" onclick="location.href = '{{route('jugadores.edit', [$liga, $equipo, $jugador->nombre_jugador])}}';">
                     <img src="/assets/icons/Edit.png" width="15px" height="15px">
                 </div>
-                <div class="ellipse" style="background-color: red;" >
-                <img src="/assets/icons/Delete.png" width="15px" height="15px">
-                </div>
+                <form action="{{route('jugadores.destroy', [$liga, $equipo, $jugador] )}}" method="POST"  class="ellipse" style="background-color: red; margin-left: 10px;" >
+                    @csrf
+
+                    @method('delete')
+                    
+                    <button type="submit" class="ellipse" style="border:none; background-color: red;"> <img src="/assets/icons/Delete.png" width="15px" height="15px"></button>
+                </form>
             </div>
         </div>
     @endforeach

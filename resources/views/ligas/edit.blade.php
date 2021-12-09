@@ -10,10 +10,11 @@
 @section('formulario')
     <div class="registrar-editar">
         <div class="datos">
-            <form action="{{route('ligas.store')}}" method="POST">
+            <form action="{{route('ligas.update', $liga)}}" method="POST">
                 @csrf
-                @method('put')
 
+                @method('put')
+                
                 <input type="text" name="nombre_liga" placeholder="Nombre de la liga" value="{{old('nombre_liga',$liga->nombre_liga)}}">
                 @error('nombre_liga')
                 <small>*{{$message}}</small>

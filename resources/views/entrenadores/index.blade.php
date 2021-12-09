@@ -17,9 +17,11 @@
                 <div class="ellipse" style="background-color: #db901f;" onclick="location.href = '{{route('entrenadores.edit', $entrenador->nombre_entrenador)}}';">
                     <img src="/assets/icons/Edit.png" width="15px" height="15px">
                 </div>
-                <div class="ellipse" style="background-color: red;" >
-                <img src="/assets/icons/Delete.png" width="15px" height="15px">
-                </div>
+                <form action="{{route('entrenadores.destroy',$entrenador)}}" method="POST"  class="ellipse" style="background-color: red; margin-left: 10px;" >
+                    @csrf
+                    @method('delete')
+                    <button type="submit" class="ellipse" style="border:none; background-color: red;"> <img src="/assets/icons/Delete.png" width="15px" height="15px"></button>
+                </form>
             </div>
         </div>
     @endforeach
