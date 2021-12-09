@@ -49,12 +49,14 @@
                     <small>*{{$message}}</small>
                     <br>
                 @enderror
-                
+
+                <div style="margin-top: 1em">
+                    <label for="formFile">Logo</label>
+                    <input class="form-control form-control-lg" id="input-file" type="file">
+                </div>
+
+
                 <div class="last" id="reg-ed-equipo-logo">
-                    <div class="logo">
-                        <p>Logotipo</p>
-                        <button class="ellipse"></button>
-                    </div>
                     <button type="submit" class="btn">Guardar</button>  
                 </div>
             </form>

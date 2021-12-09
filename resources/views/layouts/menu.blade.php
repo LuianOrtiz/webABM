@@ -30,28 +30,33 @@
                     <a href="{{route('noticias.index')}}">Noticias</a>
                     <a href="{{route('entrenadores.index')}}">Entrenadores</a>
                 </div>
-                <div class="component-ad">
-                    <img src="/assets/icons/Settings.png" width="20px" height="20px">
-                    <span>Administrador</span>
-                </div>
             </div>
             <div class="average-container">
                 <div class="main-menu">
-                    <div class="general-card">
-                        <span class="btn" style="background-color: #174377;"><a href="{{route('ligas.index')}}">Gestionar Ligas</a></span>
-                    </div>
-                    <div class="general-card">
-                        <span class="btn" style="background-color: #CAA97E;"><a href="{{route('torneos.index')}}">Gestionar Torneos</a></span>
-                    </div>
-                    <div class="general-card">
-                        <span class="btn" style="background-color: #3C4A1E;"><a href="{{route('noticias.index')}}">Gestionar Noticias</a></span>
-                    </div>
-                    <div class="general-card">
-                        <span class="btn" style="background-color: #db901f;"><a href="{{route('entrenadores.index')}}">Gestionar Entrenadores</a></span>
-                    </div>
-                    <div class="general-card">
-                        <span class="btn" style="background-color: #C7011C;"><a href="">Registrar Administrador</a></span>
-                    </div>
+                 
+                        <div class="general-card" id="card-ligas">
+                            <span class="" style="background-color: #174377;"><a href="{{route('ligas.index')}}">Gestionar Ligas</a></span>
+                        </div>
+                   
+                   
+                        <div class="general-card">
+                            <span class="" style="background-color: #CAA97E;"><a href="{{route('torneos.index')}}">Gestionar Torneos</a></span>
+                        </div>
+                   
+                   
+                        <div class="general-card">
+                            <span class="" style="background-color: #3C4A1E;"><a href="{{route('noticias.index')}}">Gestionar Noticias</a></span>
+                        </div>
+                    
+                   
+                        <div class="general-card">
+                            <span class="" style="background-color: #db901f;"><a href="{{route('entrenadores.index')}}">Gestionar Entrenadores</a></span>
+                        </div>
+                    
+                  
+                        <div class="general-card">
+                            <span class="" style="background-color: #C7011C;"><a href="">Registrar Administrador</a></span>
+                        </div>
                 </div>
             </div>
         </div>

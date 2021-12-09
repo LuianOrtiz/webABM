@@ -44,9 +44,9 @@
                 <br>
                 
                 <div class="last" id="reg-ed-equipo-logo">
-                    <div class="logo">
-                        <p>Logotipo</p>
-                        <button class="ellipse"></button>
+                    <div style="margin-top: 1em">
+                        <label for="formFile">Logo</label>
+                        <input class="form-control form-control-lg" id="input-file" type="file">
                     </div>
                     <button type="submit" class="btn">Actualizar</button>  
                 </div>
