@@ -32,10 +32,6 @@
                 <a href="{{route('torneos.index')}}">Torneos</a>
                 <a href="{{route('noticias.index')}}">Noticias</a>
             </div>
-            <div class="component-ad">
-                <img src="/assets/icons/Settings.png" width="20px" height="20px">
-                <span>Administrador</span>
-            </div>
         </div>
         <div class="average-container">
             <div class="gestionar-menu">
