@@ -22,7 +22,7 @@
             <div class="ellipse">
                 <img src="/assets/icons/User Male.png" width="20px" align="center">
             </div>
-            <span class="admin-name">Nombre Administrador</span> 
+            <span class="admin-name">{{ Auth::user()->name }}</span> 
         </div>
     </header>
     <div class="big-container">
