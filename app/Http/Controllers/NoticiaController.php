@@ -11,6 +11,10 @@ use PHPUnit\Framework\Error\Notice;
 
 class NoticiaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         $noticias = Noticia::paginate();

@@ -9,6 +9,7 @@ use App\Http\Controllers\JugadorController;
 use App\Http\Controllers\LigaController;
 use App\Http\Controllers\NoticiaController;
 use App\Http\Controllers\TorneoController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,8 +29,9 @@ use App\Http\Controllers\TorneoController;
 *   ======================================  *
 */
 
-Route::get('/admon', HomeController::class)->name('home');
-
+//Route::get('/admon', HomeController::class)->name('home');
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //CRUD LIGAS
 Route::get('/admon/ligas', [LigaController::class, 'index'])->name('ligas.index');
 Route::get('/admon/ligas/crear', [LigaController::class, 'create'])->name('ligas.create');
@@ -90,3 +92,6 @@ Route::get('/admon/ligas/{liga}/equipos/', [AdminController::class, 'index'])->n
 Route::get('/admon/ligas/{liga}/{equipo}/jugadores', [AdminController::class, 'index'])->name('admon.show'); //gestor de jugadores
 Route::get('/admon/ligas/{liga}/{equipo}/entrenadores', [AdminController::class, 'index'])->name('admon.show'); //gestor de entrenadores
 */
+
+
+

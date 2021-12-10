@@ -18,7 +18,7 @@
                 <div class="ellipse">
                     <img src="/assets/icons/User Male.png" width="20px" align="center">
                 </div>
-                <span class="admin-name">Nombre Administrador</span> 
+                <span class="admin-name">{{ Auth::user()->name }}</span> 
             </div>
         </header>
         <div class="big-container">
@@ -29,6 +29,12 @@
                     <a href="{{route('torneos.index')}}">Torneos</a>
                     <a href="{{route('noticias.index')}}">Noticias</a>
                     <a href="{{route('entrenadores.index')}}">Entrenadores</a>
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
                 </div>
                 
             </div>
@@ -56,7 +62,7 @@
                     
                   
                         <div class="general-card">
-                            <span class="" style="background-color: #C7011C;"><a href="">Registrar Administrador</a></span>
+                            <span class="" style="background-color: #C7011C;"><a href="{{ route('register') }}">Registrar Administrador</a></span>
                         </div>
                 </div>
             </div>

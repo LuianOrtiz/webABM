@@ -12,6 +12,10 @@ use Illuminate\Http\Request;
 
 class JugadorController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index($liga, $equipo)
     {
         $equipo_id = Equipo::select('id')->where('nombre_equipo', $equipo)->get();

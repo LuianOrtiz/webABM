@@ -12,6 +12,12 @@ use  Illuminate\Support\Str;
 
 class EquipoController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index($liga){
         $liga_id = Liga::select('id')->where('nombre_liga', $liga)->get();
         $equipos = Equipo::where('id_liga', $liga_id[0]->id)->get();

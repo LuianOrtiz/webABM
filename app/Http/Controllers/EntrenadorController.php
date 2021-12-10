@@ -11,6 +11,10 @@ use Illuminate\Http\Request;
 
 class EntrenadorController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     { 
         $entrenadores = Entrenador::all();
