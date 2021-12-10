@@ -11,7 +11,7 @@
 @section('formulario')
     <div class="registrar-editar">
         <div class="datos">
-            <form action="{{route('equipos.store', $liga)}}" method="POST">
+            <form action="{{route('equipos.store', $liga)}}" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 <input type="text" name="nombre_equipo" placeholder="Nombre del equipo" value="{{old('nombre_equipo')}}">
@@ -57,7 +57,7 @@
                 @enderror
                 <div style="margin-top: 1em">
                     <label for="formFile">Logo</label>
-                    <input class="form-control form-control-lg" id="input-file" type="file">
+                    <input class="form-control form-control-lg" id="input-file" name="imagen" type="file">
                 </div>
 
 

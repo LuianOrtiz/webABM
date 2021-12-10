@@ -8,6 +8,7 @@ use App\Models\Entrenador;
 use Illuminate\Http\Request;
 use App\Models\Equipo;
 use App\Models\Liga;
+use  Illuminate\Support\Str;
 
 class EquipoController extends Controller
 {
@@ -35,11 +36,35 @@ class EquipoController extends Controller
 
     public function store(StoreEquipo $request, $liga)
     {   
-        $id_liga = Liga::select('id')->where('nombre_liga',$request->id_liga)->get();
+        //return $request;
+        $equipo = new Equipo();
+        $equipo->nombre_equipo = $request->nombre_equipo;
+        $equipo->apaterno_manager = $request->apaterno_manager;
+        $equipo->amaterno_manager = $request->amaterno_manager;
+        $equipo->nombre_manager = $request->nombre_manager;
+        $id_liga = Liga::select('id')->where('nombre_liga',$liga)->get();
+        $equipo->id_liga = $id_liga[0]->id;
+        $equipo->id_entrenador = $request->id_entrenador;
+        //script para subir la imagen
+        if($request->hasFile("imagen")){
+            $imagen = $request->file("imagen");
+            $id_equipo = Equipo::all()->max('id');
+            $id_equipo++;
+            $nombre_imagen = Str::slug($id_equipo).".".$imagen->guessExtension();
+            $ruta = public_path("assets/images/logos-equipos");
+            $imagen->move($ruta,$nombre_imagen);
+            $equipo->logo_equipo = $nombre_imagen;
+        }
+
+        $equipo->save();
+        return redirect()->route('equipos.index',$liga);
+        
+        
+        /*$id_liga = Liga::select('id')->where('nombre_liga',$request->id_liga)->get();
         $request["id_liga"] = $id_liga[0]->id;
        
         $nuevo_equipo = Equipo::create($request->all());
-        return redirect()->route('equipos.index',$liga);
+        */
     }
 
 
@@ -55,12 +80,25 @@ class EquipoController extends Controller
 
     public function update(UpdateEquipo $request, $liga, $equipo)
     {   
-        $id_liga = Liga::select('id')->where('nombre_liga',$request->id_liga)->get();
-        $request["id_liga"] = $id_liga[0]->id;
         $equipo = Equipo::find($equipo);
-        $equipo->update($request->all());
+        $equipo->nombre_equipo = $request->nombre_equipo;
+        $equipo->apaterno_manager = $request->apaterno_manager;
+        $equipo->amaterno_manager = $request->amaterno_manager;
+        $equipo->nombre_manager = $request->nombre_manager;
+        $id_liga = Liga::select('id')->where('nombre_liga',$liga)->get();
+        $equipo->id_liga = $id_liga[0]->id;
+        $equipo->id_entrenador = $request->id_entrenador;
+        //script para subir la imagen
+        if($request->hasFile("imagen")){
+            $imagen = $request->file("imagen");
+            $nombre_imagen = Str::slug($equipo->id).".".$imagen->guessExtension();
+            $ruta = public_path("assets/images/logos-equipos");
+            $imagen->move($ruta,$nombre_imagen);
+            $equipo->logo_equipo = $nombre_imagen;
+        }
+
+        $equipo->update();
         return redirect()->route('equipos.index',$liga);
-        
     }
     
     public function destroy($liga, $equipo)

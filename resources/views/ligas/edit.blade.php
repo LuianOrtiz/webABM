@@ -10,7 +10,7 @@
 @section('formulario')
     <div class="registrar-editar">
         <div class="datos">
-            <form action="{{route('ligas.update', $liga)}}" method="POST">
+            <form action="{{route('ligas.update', $liga)}}" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 @method('put')

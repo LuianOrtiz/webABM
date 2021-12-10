@@ -48,7 +48,9 @@ class LigaController extends Controller
         //script para subir la imagen
         if($request->hasFile("imagen")){
             $imagen = $request->file("imagen");
-            $nombre_imagen = Str::slug($request->nombre_liga).".".$imagen->guessExtension();
+            $id_liga = Liga::all()->max('id');
+            $id_liga++;
+            $nombre_imagen = Str::slug($id_liga).".".$imagen->guessExtension();
             $ruta = public_path("assets/images/logos-ligas");
             $imagen->move($ruta,$nombre_imagen);
             $liga->logo_liga = $nombre_imagen;
@@ -100,13 +102,13 @@ class LigaController extends Controller
         //script para subir la imagen
         if($request->hasFile("imagen")){
             $imagen = $request->file("imagen");
-            $nombre_imagen = Str::slug($request->nombre_liga).".".$imagen->guessExtension();
+            $nombre_imagen = Str::slug($liga->id).".".$imagen->guessExtension();
             $ruta = public_path("assets/images/logos-ligas");
             $imagen->move($ruta,$nombre_imagen);
             $liga->logo_liga = $nombre_imagen;
         }
 
-        $liga->update($request->all());
+        $liga->update();
         return redirect()->route('ligas.index');
 
     }
