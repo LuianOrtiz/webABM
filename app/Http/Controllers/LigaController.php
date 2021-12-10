@@ -60,6 +60,7 @@ class LigaController extends Controller
     
     public function update(UpdateLiga $request,$liga)
     {
+        return $request;
         $liga = Liga::find($liga);
         $liga->update($request->all());
         return redirect()->route('ligas.index');

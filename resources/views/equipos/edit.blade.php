@@ -32,7 +32,7 @@
                     <small>*{{$message}}</small>
                     <br>
                 @enderror
-                <input type="text" name="amaterno_manager" value="{{old('amaterno_manager', $equipo->apaterno_manager)}}" placeholder="Apellido Materno">
+                <input type="text" name="amaterno_manager" value="{{old('amaterno_manager', $equipo->amaterno_manager)}}" placeholder="Apellido Materno">
                 @error('amaterno_manager')
                     <br>
                     <small>*{{$message}}</small>

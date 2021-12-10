@@ -11,7 +11,8 @@
 @section('content')
     @foreach ($entrenadores as $entrenador)
         <div class="row" style="background-color: #db901f;">
-            <h2>{{$entrenador->nombre_entrenador}}</h2>
+            <?php $entrenador_concat = $entrenador->nombre_entrenador . " " .$entrenador->apaterno_entrenador . " " . $entrenador->amaterno_entrenador; ?>
+            <h2>{{$entrenador_concat}}</h2>
             <p></p>
             <div class="commons">
                 <div class="ellipse" style="background-color: #db901f;" onclick="location.href = '{{route('entrenadores.edit', $entrenador->nombre_entrenador)}}';">

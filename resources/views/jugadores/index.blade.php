@@ -4,14 +4,15 @@
 
 @section('gestor')
     <div class="text">
-        <h2 id="category">Gestionar Jugadores</h2>
+        <h2 id="category">Gestionar Jugadores del equipo "{{$equipo}}"</h2>
     </div>
 @endsection
 
 @section('content')
     @foreach ($jugadores as $jugador)
         <div class="row">
-            <h2>{{$jugador->nombre_jugador}}</h2>
+            <?php $jugador_concat = $jugador->nombre_jugador . " " .$jugador->apaterno_jugador . " " . $jugador->amaterno_jugador; ?>
+            <h2>{{$jugador_concat}} </h2>
             <p></p>
             <div class="commons">
                 <div class="ellipse" style="background-color: var(--ligas-row)" onclick="location.href = '{{route('jugadores.edit', [$liga, $equipo, $jugador->nombre_jugador])}}';">

@@ -6,7 +6,7 @@
 @section('gestor')
 
     <div class="text">
-        <h2 id="category">Gestionar Equipos</h2>
+        <h2 id="category">Gestionar Equipos de la liga "{{$liga}}" </h2> 
     </div>
 @endsection
 

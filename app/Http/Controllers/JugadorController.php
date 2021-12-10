@@ -50,6 +50,9 @@ class JugadorController extends Controller
 
     public function update(UpdateJugador $request, $liga, $equipo, $jugador)
     {
+        $jugador_pos = Jugador::select('id_posicion')->where('id', $jugador)->get();
+        $jugador_pos = $jugador_pos[0]->id_posicion;
+        
         $id_equipo = Equipo::select('id')->where('nombre_equipo', $request->id_equipo)->get();
         $request['id_equipo'] = $id_equipo[0]->id;
         $jugador = Jugador::find($jugador);
