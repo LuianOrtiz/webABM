@@ -91,7 +91,6 @@ class LigaController extends Controller
     
     public function update(UpdateLiga $request,$liga)
     {
-        return $request;
         $liga = Liga::find($liga);
         $liga->nombre_liga = $request->nombre_liga;
         $liga->nombre_responsable = $request->nombre_responsable;
