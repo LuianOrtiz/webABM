@@ -37,7 +37,7 @@
                     <small>*{{$message}}</small>
                     <br>
                 @enderror
-                <input type="text" name="id_liga" value="{{old('nombre_liga', $liga)}}" >
+                <input type="text" readonly name="id_liga" value="{{old('nombre_liga', $liga)}}" >
                 @error('id_liga')
                     <br>
                     <small>*{{$message}}</small>

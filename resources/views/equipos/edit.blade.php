@@ -38,7 +38,7 @@
                     <small>*{{$message}}</small>
                     <br>
                 @enderror
-                <input type="text" name="id_liga" value="{{old('nombre_liga', $liga)}}" >
+                <input  readonly type="text" name="id_liga" value="{{old('nombre_liga', $liga)}}" >
                 @error('id_liga')
                     <br>
                     <small>*{{$message}}</small>
@@ -46,7 +46,7 @@
                 @enderror
                 <br>
                 <label style="margin-top: 3em;">Entrenador Actual: </label>
-                <input type="text" name="" value="{{old('id_entrenador', $entrenador)}}">
+                <input readonly type="text" name="" value="{{old('id_entrenador', $entrenador)}}">
                 <br>
                 <label >Cambiar Entrenador: </label>
                 <select name="id_entrenador" style="margin-top: 4em">
