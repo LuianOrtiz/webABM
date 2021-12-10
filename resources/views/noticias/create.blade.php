@@ -11,7 +11,7 @@
 @section('formulario')
     <div class="registrar-editar">
         <div class="datos">
-            <form action="{{route('noticias.store')}}" method="POST">
+            <form action="{{route('noticias.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 <input type="text" name="titulo" placeholder="Titulo" value="{{old('titulo')}}">
@@ -53,7 +53,7 @@
                 <div class="last" id="reg-ed-equipo-logo">
                     <div style="margin-top: 1em">
                         <label for="formFile">Portada</label>
-                        <input class="form-control form-control-lg" id="input-file" type="file">
+                        <input class="form-control form-control-lg" id="input-file" name="imagen" type="file">
                     </div>
                     <button type="submit" class="btn">Enviar</button>  
                 </div>
