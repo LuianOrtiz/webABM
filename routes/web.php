@@ -32,6 +32,7 @@ use Illuminate\Support\Facades\Auth;
 //Route::get('/admon', HomeController::class)->name('home');
 Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //CRUD LIGAS
 Route::get('/admon/ligas', [LigaController::class, 'index'])->name('ligas.index');
 Route::get('/admon/ligas/crear', [LigaController::class, 'create'])->name('ligas.create');
